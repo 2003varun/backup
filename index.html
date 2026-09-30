@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -867,10 +867,11 @@
           }
         }
 
-        @media (max-width: 760px) {
+        @media (max-width: 920px) {
           .qd-about-photo {
             margin-top: 24px !important;
             max-width: none !important;
+            transform: none !important;
           }
         }
 
@@ -1204,7 +1205,7 @@
               <div style="min-width: 0; width: 100%; max-width: 545px">
                 <div
                   style="font-family:var(--font-heading);font-size:16px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent-800);margin-bottom:22px">
-                  Data operations &amp; technology services Â· since 2010</div>
+                  Data operations &amp; technology services · since 2010</div>
                 <h1
                   style="font-size: clamp(32px,4.2vw,48px); line-height: 1.08; letter-spacing: -0.015em; margin: 0; text-wrap: pretty; opacity: {{ heroOpacity }}; transition: opacity .3s ease">
                   {{ heroLead }}<span style="color:var(--color-accent)">{{ heroAccent }}</span></h1>
@@ -1830,7 +1831,7 @@
                 <div style="display:flex;align-items:center;gap:11px">
                   <img src="{{ q.img }}" alt="" loading="lazy"
                     style="flex:none;width:42px;height:42px;border-radius:50%;object-fit:{{ q.fit }};background:var(--color-surface);border:1px solid var(--color-divider)">
-                  <div style="font-size:19px;letter-spacing:0.2em;color:#c8961e" aria-label="5 out of 5">â˜…â˜…â˜…â˜…â˜…</div>
+                  <div style="font-size:19px;letter-spacing:0.2em;color:#c8961e" aria-label="5 out of 5">★★★★★</div>
                 </div>
                 <p class="qd-clamp" ref="{{ q.ref }}"
                   style="margin:0;font-size:14px;line-height:1.6;color:var(--color-neutral-800)">{{ q.text }}</p>
@@ -1859,10 +1860,10 @@
                   <div style="display:flex;align-items:center;gap:13px">
                     <img src="assets/logos/iprocure.png" ref="{{ modalImgRef }}" alt=""
                       style="flex:none;width:52px;height:52px;border-radius:50%;object-fit:{{ quoteFit }};background:var(--color-surface);border:1px solid var(--color-divider)">
-                    <div style="font-size:20px;letter-spacing:0.2em;color:#c8961e" aria-label="5 out of 5">â˜…â˜…â˜…â˜…â˜…</div>
+                    <div style="font-size:20px;letter-spacing:0.2em;color:#c8961e" aria-label="5 out of 5">★★★★★</div>
                   </div>
                   <button type="button" onClick="{{ closeQuote }}" aria-label="Close"
-                    style="flex:none;width:32px;height:32px;border:1px solid var(--color-divider);background:var(--color-bg);cursor:pointer;font-size:17px;line-height:1;color:var(--color-neutral-700);border-radius:4px">Ã—</button>
+                    style="flex:none;width:32px;height:32px;border:1px solid var(--color-divider);background:var(--color-bg);cursor:pointer;font-size:17px;line-height:1;color:var(--color-neutral-700);border-radius:4px">×</button>
                 </div>
                 <p style="margin:18px 0 0;font-size:16px;line-height:1.7;color:var(--color-neutral-800)">{{ quoteText }}
                 </p>
@@ -1960,8 +1961,8 @@
 
         <section id="about" style="border-top:1px solid var(--color-divider)">
           <div
-            style="max-width:1200px;margin:0 auto;padding:44px 28px;display:flex;flex-wrap:wrap;gap:32px;align-items:stretch">
-            <div style="flex:1 1 0;min-width:0">
+            style="max-width:1200px;margin:0 auto;padding:44px 28px;display:flex;flex-wrap:wrap;gap:32px;align-items:center">
+            <div style="flex:1 1 450px;min-width:0">
               <div aria-hidden="true" style="width:38px;height:4px;background:var(--color-accent);margin-bottom:14px">
               </div>
               <h2 style="font-size:38px;font-weight:600;letter-spacing:-0.01em;margin:0 0 20px">About Q-DAT</h2>
