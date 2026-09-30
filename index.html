@@ -878,6 +878,35 @@
           overflow-x: auto;
         }
 
+        @media (max-width: 760px) {
+          .qd-work-table, .qd-work-table tbody, .qd-work-table tr, .qd-work-table td {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+          }
+          .qd-work-table thead {
+            display: none;
+          }
+          .qd-work-table tr {
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--color-divider);
+          }
+          .qd-work-table tr:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+          }
+          .qd-work-table td {
+            padding: 6px 0 !important;
+            border: none !important;
+          }
+          .qd-work-table td:nth-child(2) {
+            font-weight: 600;
+            color: var(--color-accent-800) !important;
+          }
+        }
+
         /* Primary action — keep the label white on every state */
         .btn-primary,
         .btn-primary:hover,
