@@ -758,6 +758,21 @@
           }
         }
 
+        @supports (-webkit-touch-callout: none) {
+          .qd-ind-container {
+            flex-direction: column !important;
+          }
+          .qd-ind-container > div {
+            max-width: 100% !important;
+          }
+          .qd-ind-img-wrapper {
+            max-width: 100% !important;
+          }
+          .qd-ind-col {
+            margin-top: 0 !important;
+          }
+        }
+
         @media (max-width: 860px) {
           .qd-areas {
             grid-template-rows: none;
@@ -787,7 +802,7 @@
           margin-left: auto;
         }
 
-        @media (max-width: 960px) {
+        @media (max-width: 760px) {
           .qd-hamburger {
             display: flex;
             align-items: center;
@@ -807,6 +822,33 @@
             flex-direction: column;
             align-items: stretch;
             gap: 12px !important;
+          }
+        }
+
+        @media (min-width: 761px) and (max-width: 960px) {
+          .qd-nav {
+            gap: 12px !important;
+          }
+          .qd-navlink {
+            font-size: 12.5px !important;
+          }
+          .qd-rating-row {
+            gap: 4px !important;
+          }
+          .qd-rating-stars {
+            font-size: 14px !important;
+            letter-spacing: 0.05em !important;
+          }
+        }
+
+        @media (min-width: 761px) {
+          @supports (-webkit-touch-callout: none) {
+            .qd-nav-panel {
+              flex: 1;
+            }
+            .qd-header-cta {
+              margin-left: 0;
+            }
           }
         }
 
@@ -1681,14 +1723,14 @@
 
         <section id="industries"
           style="border-top:1px solid var(--color-divider);max-width:1200px;margin:0 auto;padding:44px 28px">
-          <div style="display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start">
+          <div class="qd-ind-container" style="display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start">
             <div style="flex:1 1 340px;max-width:550px;min-width:0">
               <div aria-hidden="true" style="width:38px;height:4px;background:var(--color-accent);margin-bottom:14px">
               </div>
               <h2 style="font-size:38px;font-weight:600;letter-spacing:-0.01em;margin:0">Industries</h2>
               <p style="margin:14px 0 0;font-size:15px;color:var(--color-neutral-700)">Twelve sectors, grouped so the
                 right team can find themselves fast.</p>
-              <div
+              <div class="qd-ind-img-wrapper"
                 style="margin-top:22px;width:100%;max-width:550px;aspect-ratio:550/309;border-radius:12px;overflow:hidden">
                 <image-slot id="industries-side-photo" shape="rect" fit="cover" placeholder="Client industry photo"
                   src="assets/images/industries.png" style="width:100%;height:100%"></image-slot>
@@ -1830,10 +1872,10 @@
               <blockquote
                 style="margin:0;height:100%;box-sizing:border-box;padding:22px 20px;display:flex;flex-direction:column;gap:12px;border:1px solid var(--color-divider);background:#fff;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease"
                 style-hover="transform:translateY(-6px);box-shadow:var(--shadow-hover);border-color:var(--color-accent-400)">
-                <div style="display:flex;align-items:center;gap:11px">
+                <div class="qd-rating-row" style="display:flex;align-items:center;gap:11px;flex-wrap:wrap;min-width:0;flex-shrink:1">
                   <img src="{{ q.img }}" alt="" loading="lazy"
                     style="flex:none;width:42px;height:42px;border-radius:50%;object-fit:{{ q.fit }};background:var(--color-surface);border:1px solid var(--color-divider)">
-                  <div style="font-size:19px;letter-spacing:0.2em;color:#c8961e" aria-label="5 out of 5">★★★★★</div>
+                  <div class="qd-rating-stars" style="font-size:19px;letter-spacing:0.2em;color:#c8961e" aria-label="5 out of 5">★★★★★</div>
                 </div>
                 <p class="qd-clamp" ref="{{ q.ref }}"
                   style="margin:0;font-size:14px;line-height:1.6;color:var(--color-neutral-800)">{{ q.text }}</p>
