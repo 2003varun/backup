@@ -1167,6 +1167,14 @@
           }
         }
       @media (max-width: 600px) {
+  .qd-footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .qd-footer-grid > div:first-child,
+  .qd-footer-grid > div:last-child {
+    grid-column: 1 / -1;
+  }
+
   .qd-constellation {
     transform: scale(0.55);
     margin-bottom: -200px;
@@ -2958,7 +2966,7 @@
 
       <footer class="qd-gradient-band" style="border-top:1px solid #013b6a">
         <div style="max-width:1200px;margin:0 auto;padding:36px 28px 20px">
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px">
+          <div class="qd-footer-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px">
             <div>
               <div style="margin-bottom:10px">
                 <a href="#top" style="display:inline-block;background:#fff;padding:7px 11px;border-radius:6px">
