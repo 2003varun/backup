@@ -773,6 +773,23 @@
           }
         }
 
+        @media (max-width: 932px) and (orientation: landscape) {
+          .qd-ind-container {
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
+          }
+          .qd-ind-container > div {
+            max-width: none !important;
+            flex: 1 1 0% !important;
+          }
+          .qd-ind-img-wrapper {
+            max-width: 100% !important;
+          }
+          .qd-ind-col {
+            margin-top: 0 !important;
+          }
+        }
+
         @media (max-width: 860px) {
           .qd-areas {
             grid-template-rows: none;
@@ -3300,6 +3317,7 @@ class Component extends DCLogic {
   // Free tier at emailjs.com: Email Services > Add Service (gives the service id),
   // Email Templates > Create Template (gives the template id) using variables
   // {{from_name}} {{company}} {{email}} {{phone}} {{country}} {{service}} {{message}} {{to_email}},
+  // and {{{html_message}}} (for the styled HTML layout)
   // and Account > General for the public key. Paste all three below.
   static EMAILJS_SERVICE_ID = "service_f186qoi";
   static EMAILJS_TEMPLATE_ID = "template_4v8pzhu";
@@ -3670,10 +3688,35 @@ class Component extends DCLogic {
     // Enquiries send via EmailJS (no backend needed). Falls back to a mailto:
     // link if EmailJS isn't configured yet or the request fails, so a visitor
     // is never stuck with a dead button.
+    const esc = (s) => String(s || "").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const safeMsg = f.message || "(none given)";
+    const htmlMessage = `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;border:1px solid #e0e0e0;border-radius:8px;overflow:hidden">
+<div style="background-color:#002745;padding:20px;text-align:center">
+<h2 style="margin:0;color:#ffffff;font-size:20px;font-weight:600">New Website Enquiry</h2>
+</div>
+<div style="padding:20px;background-color:#ffffff">
+<table style="width:100%;border-collapse:collapse;font-size:15px;color:#333333">
+<tbody>
+<tr><td style="padding:12px 0;border-bottom:1px solid #f0f0f0;font-weight:bold;width:120px">Name</td><td style="padding:12px 0;border-bottom:1px solid #f0f0f0">${esc(f.name)}</td></tr>
+<tr><td style="padding:12px 0;border-bottom:1px solid #f0f0f0;font-weight:bold">Company</td><td style="padding:12px 0;border-bottom:1px solid #f0f0f0">${esc(f.company)}</td></tr>
+<tr><td style="padding:12px 0;border-bottom:1px solid #f0f0f0;font-weight:bold">Email</td><td style="padding:12px 0;border-bottom:1px solid #f0f0f0"><a href="mailto:${esc(f.email)}" style="color:#c96442;text-decoration:none">${esc(f.email)}</a></td></tr>
+<tr><td style="padding:12px 0;border-bottom:1px solid #f0f0f0;font-weight:bold">Phone</td><td style="padding:12px 0;border-bottom:1px solid #f0f0f0">${esc(this.dialFor(f.country) + " " + f.phone)}</td></tr>
+<tr><td style="padding:12px 0;border-bottom:1px solid #f0f0f0;font-weight:bold">Country</td><td style="padding:12px 0;border-bottom:1px solid #f0f0f0">${esc(f.country)}</td></tr>
+<tr><td style="padding:12px 0;border-bottom:1px solid #f0f0f0;font-weight:bold">Service</td><td style="padding:12px 0;border-bottom:1px solid #f0f0f0">${esc(f.service)}</td></tr>
+<tr><td style="padding:12px 0;border-bottom:1px solid #f0f0f0;font-weight:bold;vertical-align:top">Message</td><td style="padding:12px 0;border-bottom:1px solid #f0f0f0;white-space:pre-wrap">${esc(safeMsg)}</td></tr>
+</tbody>
+</table>
+<div style="margin-top:20px;font-size:13px;color:#666666;text-align:center">
+<p style="margin:0">Consent to be contacted: <strong>Yes</strong></p>
+<p style="margin:4px 0 0">Submitted from www.q-dat.com</p>
+</div>
+</div>
+</div>`;
+
     const params = {
       from_name: f.name, company: f.company, email: f.email,
       phone: this.dialFor(f.country) + " " + f.phone, country: f.country,
-      service: f.service, message: f.message || "(none given)",
+      service: f.service, message: safeMsg, html_message: htmlMessage,
       to_email: Component.ENQUIRY_TO
     };
     const mailtoFallback = () => {
