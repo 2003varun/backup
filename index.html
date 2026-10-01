@@ -1170,9 +1170,15 @@
   .qd-footer-grid {
     grid-template-columns: 1fr 1fr !important;
   }
-  .qd-footer-grid > div:first-child,
+  .qd-footer-grid > div:first-child {
+    grid-column: 1 / -1;
+  }
   .qd-footer-grid > div:last-child {
     grid-column: 1 / -1;
+    margin-top: -12px;
+  }
+  .qd-footer-grid > div:nth-child(3) {
+    padding-left: 12px;
   }
 
   .qd-constellation {
