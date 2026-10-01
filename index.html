@@ -3154,6 +3154,7 @@ class Component extends DCLogic {
   onImageSlotClick = (e) => {
     const slot = e.target.closest && e.target.closest("image-slot");
     if (!slot || !slot.hasAttribute("data-filled") || slot.hasAttribute("data-reframe")) return;
+    if (slot.closest("#industries, #faq, #about")) return;
     const inner = e.composedPath ? e.composedPath()[0] : null;
     if (!inner || (inner.tagName !== "IMG" && !(inner.classList && inner.classList.contains("frame")))) return;
     const img = slot.shadowRoot && slot.shadowRoot.querySelector('img[part="image"]');
