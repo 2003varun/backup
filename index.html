@@ -1244,20 +1244,20 @@
           <a class="qd-skip" href="#top">Skip to content</a>
           <div class="qd-nav-panel" data-open="{{ mobileMenuOpen }}">
             <nav class="qd-nav" style="display:flex;gap:20px;flex-wrap:wrap;position:relative;z-index:1">
-              <a href="#services" class="qd-navlink"
+              <a href="#services" class="qd-navlink" onClick="{{ closeMobileMenu }}"
                 style="text-decoration:none;color:var(--color-text);font-size:13.5px;font-weight:500;letter-spacing:0.01em;padding:5px 2px;border-bottom:2px solid transparent">Services</a>
-              <a href="#industries" class="qd-navlink"
+              <a href="#industries" class="qd-navlink" onClick="{{ closeMobileMenu }}"
                 style="text-decoration:none;color:var(--color-text);font-size:13.5px;font-weight:500;letter-spacing:0.01em;padding:5px 2px;border-bottom:2px solid transparent">Industries</a>
-              <a href="#work" class="qd-navlink"
+              <a href="#work" class="qd-navlink" onClick="{{ closeMobileMenu }}"
                 style="text-decoration:none;color:var(--color-text);font-size:13.5px;font-weight:500;letter-spacing:0.01em;padding:5px 2px;border-bottom:2px solid transparent">Work</a>
-              <a href="#faq" class="qd-navlink"
+              <a href="#faq" class="qd-navlink" onClick="{{ closeMobileMenu }}"
                 style="text-decoration:none;color:var(--color-text);font-size:13.5px;font-weight:500;letter-spacing:0.01em;padding:5px 2px;border-bottom:2px solid transparent">FAQ</a>
-              <a href="#about" class="qd-navlink"
+              <a href="#about" class="qd-navlink" onClick="{{ closeMobileMenu }}"
                 style="text-decoration:none;color:var(--color-text);font-size:13.5px;font-weight:500;letter-spacing:0.01em;padding:5px 2px;border-bottom:2px solid transparent">About</a>
-              <a href="#/careers" class="qd-navlink"
+              <a href="#/careers" class="qd-navlink" onClick="{{ closeMobileMenu }}"
                 style="text-decoration:none;color:var(--color-text);font-size:13.5px;font-weight:500;letter-spacing:0.01em;padding:5px 2px;border-bottom:2px solid transparent">Careers</a>
             </nav>
-            <a href="#contact" class="btn btn-primary qd-header-cta" style="position:relative;z-index:1">Start a free
+            <a href="#contact" class="btn btn-primary qd-header-cta" style="position:relative;z-index:1" onClick="{{ closeMobileMenu }}">Start a free
               trial project</a>
           </div>
           <div class="qd-nav-sheen" aria-hidden="true"></div>
@@ -3700,6 +3700,7 @@ class Component extends DCLogic {
   });
 
   toggleMobileMenu = () => this.setState(st => ({ mobileMenuOpen: !st.mobileMenuOpen }));
+  closeMobileMenu = () => this.setState({ mobileMenuOpen: false });
 
   // The sticky header changes height when the nav wraps, so anchor offsets are
   // measured from it. Resolved by query each time rather than held as a ref: a
@@ -3832,6 +3833,7 @@ class Component extends DCLogic {
       resetEnquiry: this.resetEnquiry,
       mobileMenuOpen: !!this.state.mobileMenuOpen,
       toggleMobileMenu: this.toggleMobileMenu,
+      closeMobileMenu: this.closeMobileMenu,
       countries: Component.COUNTRIES.map(([n, d]) => ({ name: n, label: n + " (" + d + ")", key: n + d })),
       vName: f.name, vCompany: f.company, vEmail: f.email, vCountry: f.country,
       vPhone: f.phone, vService: f.service, vMessage: f.message, vConsent: f.consent,
