@@ -1172,13 +1172,35 @@
   }
   .qd-footer-grid > div:first-child {
     grid-column: 1 / -1;
+    border-bottom: 1px solid rgba(255,255,255,0.22);
+    padding-bottom: 28px;
+    margin-bottom: 4px;
+  }
+  .qd-footer-grid > div:first-child p:first-of-type {
+    max-width: 260px !important;
+    line-height: 1.6 !important;
   }
   .qd-footer-grid > div:last-child {
     grid-column: 1 / -1;
-    margin-top: -12px;
+    margin-top: -14px;
   }
   .qd-footer-grid > div:nth-child(3) {
     padding-left: 12px;
+  }
+  
+  .qd-footer-grid + div {
+    flex-direction: column;
+    justify-content: center !important;
+    align-items: center;
+    text-align: center;
+    gap: 16px !important;
+  }
+  .qd-footer-grid + div > span:first-child {
+    line-height: 1.6;
+    max-width: 250px;
+  }
+  .qd-footer-grid + div > span:last-child {
+    justify-content: center;
   }
 
   .qd-constellation {
