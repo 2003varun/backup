@@ -759,21 +759,23 @@
         }
 
         @supports (-webkit-touch-callout: none) {
-          .qd-ind-container {
-            flex-direction: column !important;
-          }
-          .qd-ind-container > div {
-            max-width: 100% !important;
-          }
-          .qd-ind-img-wrapper {
-            max-width: 100% !important;
-          }
-          .qd-ind-col {
-            margin-top: 0 !important;
+          @media (orientation: portrait) {
+            .qd-ind-container {
+              flex-direction: column !important;
+            }
+            .qd-ind-container > div {
+              max-width: 100% !important;
+            }
+            .qd-ind-img-wrapper {
+              max-width: 100% !important;
+            }
+            .qd-ind-col {
+              margin-top: 0 !important;
+            }
           }
         }
 
-        @media (max-width: 932px) and (orientation: landscape) {
+        @media (max-width: 1024px) and (orientation: landscape) {
           .qd-ind-container {
             flex-direction: row !important;
             flex-wrap: nowrap !important;
