@@ -307,7 +307,8 @@
     // ancestor (a plain z-index can't escape overflow clipping). UA popover
     // defaults (inset:0;margin:auto) are reset; _applyView sets viewport px.
     '.spill{position:fixed;margin:0;inset:auto;border:0;padding:0;background:transparent;' +
-    '  overflow:visible;transform:translate(-50%,-50%);z-index:1;cursor:grab;touch-action:none}' +
+    '  overflow:visible;transform:translate(-50%,-50%);z-index:1;cursor:grab;touch-action:none;pointer-events:none}' +
+    ':host([data-reframe]) .spill{pointer-events:auto}' +
     ':host([data-panning]) .spill{cursor:grabbing}' +
     '.spill .ghost{position:absolute;inset:0;width:100%;height:100%;opacity:.35;' +
     '  pointer-events:none;-webkit-user-drag:none;user-select:none;' +
