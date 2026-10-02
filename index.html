@@ -830,17 +830,27 @@
           .qd-nav-panel {
             display: none !important;
             flex-direction: column;
-            align-items: stretch;
+            align-items: flex-end !important;
             width: 100%;
-            padding-top: 10px;
+            padding: 4px 0 12px !important;
+            gap: 12px !important;
+            text-align: right !important;
           }
           .qd-nav-panel[data-open="true"] {
             display: flex !important;
           }
           .qd-nav {
             flex-direction: column;
-            align-items: stretch;
-            gap: 12px !important;
+            align-items: flex-end !important;
+            gap: 4px !important;
+            width: 100%;
+          }
+          .qd-navlink {
+            text-align: right !important;
+            padding: 4px 0 !important;
+          }
+          .qd-header-cta {
+            text-align: right !important;
           }
         }
 
