@@ -2183,9 +2183,14 @@
                     Enquiry received</div>
                   <h3 style="font-family:var(--font-heading);font-size:27px;margin:0">Thank you. We have your details.
                   </h3>
-                  <p style="margin:0;font-size:15px;line-height:1.6;color:var(--color-neutral-800);max-width:42ch">Your
-                    enquiry has been prepared for Raghav. Send it from the mail window that just opened, and he will be
-                    in touch within one working day.</p>
+                  <sc-if value="{{ enquiryFallback }}">
+                    <p style="margin:0;font-size:15px;line-height:1.6;color:var(--color-neutral-800);max-width:42ch">Your
+                      enquiry has been prepared for Raghav. Send it from the mail window that just opened, and he will be
+                      in touch within one working day.</p>
+                  </sc-if>
+                  <sc-if value="{{ !enquiryFallback }}">
+                    <p style="margin:0;font-size:15px;line-height:1.6;color:var(--color-neutral-800);max-width:42ch">Thank you! Your enquiry has been submitted successfully. Our team will get back to you soon.</p>
+                  </sc-if>
                   <button type="button" onClick="{{ resetEnquiry }}" class="btn btn-secondary"
                     style="align-self:flex-start;margin-top:6px">Send another enquiry</button>
                 </div>
@@ -3775,7 +3780,7 @@ class Component extends DCLogic {
     const notConfigured = Component.EMAILJS_SERVICE_ID.indexOf("REPLACE_WITH") === 0;
     if (notConfigured || !window.emailjs) {
       mailtoFallback();
-      this.setState({ enquirySent: true, errors: {}, summary: "" });
+      this.setState({ enquirySent: true, enquiryFallback: true, errors: {}, summary: "" });
       return;
     }
     this.setState({ enquirySending: true, summary: "" });
@@ -3792,6 +3797,7 @@ class Component extends DCLogic {
 
   resetEnquiry = () => this.setState({
     enquirySent: false,
+    enquiryFallback: false,
     f: { name: "", company: "", email: "", country: "India", phone: "", service: "", message: "", consent: false },
     errors: {},
     summary: ""
@@ -3923,6 +3929,7 @@ class Component extends DCLogic {
       routeIsServiceBackOffice: route === "service-back-office",
       routeIsServiceApplicationSupport: route === "service-application-support",
       enquirySent: this.state.enquirySent,
+      enquiryFallback: !!this.state.enquiryFallback,
       enquiryOpen: !this.state.enquirySent,
       enquirySending: this.state.enquirySending,
       submitLabel: this.state.enquirySending ? "Sending…" : "Submit",
