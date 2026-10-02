@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Sitemap | Q-DAT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@400;500;600&family=Fira+Sans:wght@400;500&family=Oswald:wght@700&display=swap">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sitemap for Q-DAT Data Operations and Technology Services.">
+  <script src="./support.js"></script>
+</head>
+<body style="margin: 0; padding: 0; background-color: var(--color-surface); font-family: 'Inter', sans-serif;">
+  <x-dc>
+    <style>
+        html {
+          -webkit-text-size-adjust: 100%;
+          text-size-adjust: 100%;
+        }
+
+        /* Industry tokens keyed to the Q-DAT mark: its royal blue (#0166b6 sampled
+     from the logo) is the accent, with a perceptual ramp built around it. */
+        :root {
+          --color-bg: #fbfcfd;
+          --color-surface: #eff3f9;
+          --color-divider: #dae1ec;
+          --color-accent: #0166b6;
+          --color-accent-100: #f0f6fb;
+          --color-accent-200: #d9e8f4;
+          --color-accent-300: #aecee8;
+          --color-accent-400: #6b92d0;
+          --color-accent-500: #2360b4;
+          --color-accent-600: #0a4ea8;
+          --color-accent-700: #014e8a;
+          --color-accent-800: #013b6a;
+          --color-accent-900: #002745;
+          --color-neutral-700: #4d5662;
+          --color-neutral-800: #252c35;
+          --color-neutral-900: #101720;
+        }
+
+        :root {
+          --qd-gradient: linear-gradient(104deg, #002745 0%, #014e8a 42%, #0166b6 74%, #4291cf 100%);
+          --qd-ink: #22272e;
+          --color-text: #22272e;
+          --shadow-lg: 0 24px 48px -12px rgba(1, 20, 40, .35);
+          --shadow-hover: 0 10px 20px -10px rgba(1, 20, 40, .22);
+        }
+
+        body {
+          font-size: 17px;
+          line-height: 1.7;
+          color: var(--qd-ink);
+          margin: 0;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          font-feature-settings: "kern" 1, "liga" 1;
+        }
+
+        /* Condensed headings tighten as they grow; body copy gets a touch more air. */
+        h1,
+        h2,
+        h3,
+        h4 {
+          font-weight: 600;
+          text-wrap: balance;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+          font-family: var(--font-heading);
+        }
+
+        h1 {
+          letter-spacing: -0.015em;
+        }
+
+        h2 {
+          letter-spacing: -0.008em;
+        }
+
+        h3 {
+          letter-spacing: 0.005em;
+        }
+
+        p {
+          text-wrap: pretty;
+        }
+
+        /* Figures and counts align in columns whatever the pairing. */
+        .qd-num,
+        .table td,
+        .table th {
+          font-variant-numeric: tabular-nums;
+        }
+
+        .table {
+          width: 100%;
+          border-collapse: collapse;
+        }
+
+        .table th,
+        .table td {
+          text-align: left;
+          padding: 14px 12px;
+          vertical-align: top;
+        }
+
+        .table th:first-child,
+        .table td:first-child {
+          padding-left: 0;
+        }
+
+        .table thead th {
+          border-bottom: 2px solid var(--color-divider);
+        }
+
+        .table tbody tr {
+          border-bottom: 1px solid var(--color-divider);
+        }
+
+        .table tbody tr:last-child {
+          border-bottom: none;
+        }
+
+        .qd-work-table tbody tr:hover {
+          background: none !important;
+        }
+
+        .qd-work-table thead th {
+          color: var(--color-accent-800);
+          font-weight: 700;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+          font-weight: 500 !important;
+        }
+
+        html {
+          scroll-behavior: smooth;
+        }
+
+        section[id],
+        main[id] {
+          scroll-margin-top: calc(var(--qd-header-h, 82px) + 18px);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          html {
+            scroll-behavior: auto;
+          }
+        }
+
+        summary {
+          list-style: none;
+        }
+
+        summary::-webkit-details-marker {
+          display: none;
+        }
+
+        summary:hover {
+          color: var(--color-accent-700);
+        }
+
+        .qd-plus {
+          transition: transform .18s ease;
+        }
+
+        details[open] .qd-plus {
+          transform: rotate(45deg);
+        }
+
+        a:hover {
+          color: var(--color-accent-700);
+        }
+
+        p {
+          color: var(--qd-ink);
+        }
+
+        h1,
+        h2,
+        h3 {
+          color: #101720;
+        }
+
+        /* One gradient, used only where a solid accent sat before. */
+        .btn-primary {
+          background: var(--qd-gradient) !important;
+          border-color: transparent !important;
+        }
+
+        /* The design system forces these to 0 for its blueprint look; this build
+     has moved to soft corners everywhere (hero panel, stat cards, service
+     subpage tiles), so match the CTA, form fields, cards and quote tiles. */
+        .card,
+        .btn,
+        .input,
+        .qd-areas>a,
+        blockquote {
+          border-radius: 10px !important;
+        }
+
+        .btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          padding: 8px 16px;
+          font-size: 13px;
+          font-family: var(--font-body);
+          text-decoration: none;
+          border: 1px solid transparent;
+          cursor: pointer;
+          white-space: nowrap;
+          transition: filter .15s ease, background .15s ease, opacity .15s ease;
+        }
+
+        .btn-secondary {
+          background: transparent;
+          border: 1px solid var(--color-accent-700);
+          color: var(--color-accent-700);
+        }
+
+        .btn-secondary:hover {
+          background: var(--color-accent-50, #eef4fa);
+          border-color: var(--color-accent-800);
+          color: var(--color-accent-800);
+        }
+
+        .card {
+          border: 1px solid var(--color-divider);
+        }
+
+        .field {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+        }
+
+        .field label {
+          font-size: 13px;
+          font-weight: 600;
+          color: var(--color-text);
+        }
+
+        .input {
+          font: inherit;
+          font-size: 15px;
+          padding: 11px 13px;
+          border: 1px solid var(--color-divider);
+          background: #fff;
+          color: var(--color-text);
+          width: 100%;
+          box-sizing: border-box;
+        }
+
+        .input:focus {
+          outline: 2px solid var(--color-accent);
+          outline-offset: 1px;
+          border-color: var(--color-accent);
+        }
+
+        .qd-gradient-band {
+          background: var(--qd-gradient);
+        }
+
+        .qd-gradient-band * {
+          color: #d2e3f3 !important;
+        }
+
+        .qd-gradient-band a {
+          color: #ffffff !important;
+        }
+
+        .qd-gradient-band a:hover {
+          color: #a8d4ff !important;
+        }
+
+        .qd-gradient-band h2,
+        .qd-gradient-band h3,
+        .qd-gradient-band strong,
+        .qd-gradient-band .qd-foot-brand {
+          color: #ffffff !important;
+        }
+
+        .qd-gradient-band a:focus-visible {
+          outline-color: #ffffff;
+        }
+
+        a:focus-visible,
+        summary:focus-visible,
+        button:focus-visible,
+        .qd-float:focus-visible {
+          outline: 2px solid var(--color-accent);
+          outline-offset: 2px;
+        }
+
+        .qd-skip {
+          position: absolute;
+          left: 12px;
+          top: -48px;
+          z-index: 60;
+          padding: 10px 16px;
+          background: var(--color-accent);
+          color: #fff;
+          font-family: var(--font-heading);
+          font-size: 14px;
+          letter-spacing: 0.04em;
+          text-decoration: none;
+          transition: top .16s ease;
+        }
+
+        .qd-skip:focus {
+          top: 12px;
+          color: #fff;
+        }
+
+        @keyframes qd-marq-a {
+          from {
+            transform: translate3d(0, 0, 0);
+          }
+
+          to {
+            transform: translate3d(-50%, 0, 0);
+          }
+        }
+
+        @keyframes qd-marq-b {
+          from {
+            transform: translate3d(-50%, 0, 0);
+          }
+
+          to {
+            transform: translate3d(0, 0, 0);
+          }
+        }
+
+        /* Scroll reveal: cards, tiles and stat blocks rise and fade in as they enter
+    // view, in the spirit of the Qube reference — a quiet cue, not a spectacle.
+     Held at full opacity until JS confirms support, so nothing is hidden if
+     IntersectionObserver is unavailable. */
+        .qd-reveal {
+          opacity: 1;
+          transform: none;
+          transition: opacity .55s ease, transform .55s ease;
+        }
+
+        .qd-reveal-armed {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+
+        .qd-reveal-armed.qd-in {
+          opacity: 1;
+          transform: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+          .qd-reveal,
+          .qd-reveal-armed {
+            opacity: 1 !important;
+            transform: none !important;
+            transition: none !important;
+          }
+        }
+
+        /* Color-only spec: font family/weight/size revert to the typeStyle pairing;
+     these three text colors stay fixed regardless of which pairing is active. */
+        h2 {
+          color: #1a1a1a !important;
+        }
+
+        /* Industry tags: the DS default (11px, pale neutral-100 fill) read too small
+     and low-contrast against twelve sectors of dense tags. */
+        .qd-ind-row .tag-neutral {
+          background: var(--color-accent-100);
+          color: var(--color-accent-800);
+          font-size: 12px;
+          font-weight: 500;
+          padding: 4px 10px;
+        }
+
+        .qd-ind-row>div:first-child {
+          font-size: 11.5px !important;
+        }
+
+        /* Lightbox: click any filled image slot to view it full-size. */
+        .qd-lightbox {
+          position: fixed;
+          inset: 0;
+          z-index: 90;
+          background: rgba(2, 29, 68, 0.82);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 32px;
+          cursor: zoom-out;
+        }
+
+        .qd-lightbox img {
+          max-width: 92vw;
+          max-height: 88vh;
+          border-radius: 8px;
+          box-shadow: var(--shadow-lg);
+          cursor: default;
+        }
+
+        image-slot[data-filled] .frame {
+          cursor: zoom-in;
+        }
+
+        h3,
+        .card-title {
+          color: #1e1e1e !important;
+        }
+
+        p,
+        .card-body {
+          color: #666666 !important;
+        }
+
+        .qd-hero-lead-p {
+          color: #000000 !important;
+        }
+
+        /* Each service row holds all ten services at its own rotation, repeated three
+     times and shifted by a third, so one copy always overfills the track. */
+        @keyframes qd-marq-c {
+          from {
+            transform: translate3d(0, 0, 0);
+          }
+
+          to {
+            transform: translate3d(-33.3333%, 0, 0);
+          }
+        }
+
+        @keyframes qd-marq-d {
+          from {
+            transform: translate3d(-33.3333%, 0, 0);
+          }
+
+          to {
+            transform: translate3d(0, 0, 0);
+          }
+        }
+
+        .qd-float {
+          flex: none;
+          padding: 9px 15px;
+          font-family: var(--font-heading);
+          font-size: 14.9px;
+          font-weight: 400;
+          line-height: 1.15;
+          letter-spacing: 0.01em;
+          white-space: nowrap;
+          text-decoration: none;
+          border: 1px solid var(--color-accent-400);
+          border-radius: 999px;
+          background: var(--color-accent-100);
+          color: #000000;
+          transition: background .14s ease, color .14s ease, border-color .14s ease, transform .14s ease;
+        }
+
+        .qd-float:hover,
+        .qd-float:focus-visible {
+          z-index: 3;
+          background-image: linear-gradient(to right, #000428 0%, #004e92 51%, #000428 100%);
+          background-size: 200% auto;
+          background-position: right center;
+          border-color: #004e92;
+          color: #ffffff;
+          transform: translateY(-2px);
+        }
+
+        /* Lit while the chip straddles the centre line: one per row at a time. */
+        .qd-float.qd-lit {
+          z-index: 2;
+          background-image: linear-gradient(to right, #000428 0%, #004e92 51%, #000428 100%);
+          background-size: 200% auto;
+          background-position: left center;
+          border-color: #004e92;
+          color: #ffffff;
+          animation: qd-pill-sheen 2.4s ease-in-out infinite;
+        }
+
+        @keyframes qd-pill-sheen {
+
+          0%,
+          100% {
+            background-position: left center;
+          }
+
+          50% {
+            background-position: right center;
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+          .qd-srow,
+          .qd-lrow,
+          .qd-float.qd-lit {
+            animation: none !important;
+          }
+        }
+
+        /* Six lines then the Read more button; the modal carries the full text. */
+        .qd-clamp {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 4;
+          overflow: hidden;
+        }
+
+        @media (max-width: 760px) {
+          .qd-quotes {
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          }
+        }
+
+        @media (max-width: 560px) {
+          .qd-quotes {
+            grid-template-columns: minmax(0, 1fr) !important;
+          }
+        }
+
+        @media (max-width: 860px) {
+          .qd-areas {
+            grid-template-columns: minmax(0, 1fr) !important;
+          }
+        }
+
+        .qd-areas {
+          grid-template-rows: auto auto auto auto;
+          column-gap: 18px;
+          row-gap: 0;
+        }
+
+        .qd-areas>a {
+          display: grid;
+          grid-row: span 4;
+          grid-template-rows: subgrid;
+          row-gap: 0;
+        }
+
+        @supports not (grid-template-rows: subgrid) {
+          .qd-areas>a {
+            display: flex;
+            flex-direction: column;
+          }
+
+          .qd-areas>a>h3 {
+            min-height: 50px;
+          }
+
+          .qd-areas>a>p {
+            min-height: 90px;
+          }
+        }
+
+        .qd-ind-col {
+          margin-top: 0;
+        }
+
+        @media (min-width: 776px) {
+          .qd-ind-col {
+            margin-top: 68px;
+          }
+        }
+
+        @media (max-width: 620px) {
+          .qd-ind-row {
+            grid-template-columns: minmax(0, 1fr) !important;
+          }
+        }
+
+        @supports (-webkit-touch-callout: none) {
+          @media (orientation: portrait) {
+            .qd-ind-container {
+              flex-direction: column !important;
+            }
+            .qd-ind-container > div {
+              max-width: 100% !important;
+            }
+            .qd-ind-img-wrapper {
+              max-width: 100% !important;
+            }
+            .qd-ind-col {
+              margin-top: 0 !important;
+            }
+          }
+        }
+
+        @media (max-width: 1024px) and (orientation: landscape) {
+          .qd-ind-container {
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
+          }
+          .qd-ind-container > div {
+            max-width: none !important;
+            flex: 1 1 0% !important;
+          }
+          .qd-ind-img-wrapper {
+            max-width: 100% !important;
+          }
+          .qd-ind-col {
+            margin-top: 0 !important;
+          }
+        }
+
+        @media (max-width: 860px) {
+          .qd-areas {
+            grid-template-rows: none;
+            row-gap: 18px;
+          }
+
+          .qd-areas>a {
+            grid-row: auto;
+            grid-template-rows: none;
+            display: flex;
+            flex-direction: column;
+          }
+
+          .qd-areas>a>h3,
+          .qd-areas>a>p {
+            min-height: 0;
+          }
+        }
+
+        .qd-hamburger {
+          display: none;
+          background: none;
+          border: none;
+          color: var(--color-text);
+          cursor: pointer;
+          padding: 8px;
+          margin-left: auto;
+        }
+
+        @media (max-width: 760px) {
+          .qd-hamburger {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .qd-nav-panel {
+            display: none !important;
+            flex-direction: column;
+            align-items: flex-end !important;
+            width: 100%;
+            padding: 4px 0 12px !important;
+            gap: 12px !important;
+            text-align: right !important;
+          }
+          .qd-nav-panel[data-open="true"] {
+            display: flex !important;
+          }
+          .qd-nav {
+            flex-direction: column;
+            align-items: flex-end !important;
+            gap: 4px !important;
+            width: 100%;
+          }
+          .qd-navlink {
+            text-align: right !important;
+            padding: 4px 0 !important;
+          }
+          .qd-header-cta {
+            text-align: right !important;
+          }
+        }
+
+        #faq summary {
+          align-items: flex-start !important;
+          padding: 18px 0 !important;
+          line-height: 1.4 !important;
+          text-align: left !important;
+        }
+        #faq summary .qd-plus {
+          margin-top: 2px !important;
+        }
+
+        @media (min-width: 761px) and (max-width: 1024px) {
+          header > div {
+            flex-wrap: nowrap !important;
+          }
+          .qd-nav-panel {
+            gap: 16px !important;
+          }
+          #faq > div > div:nth-child(2) {
+            flex-wrap: nowrap !important;
+            align-items: flex-start !important;
+            gap: 32px !important;
+          }
+          #faq > div > div:nth-child(2) > div:first-child {
+            flex: 1 1 45% !important;
+            max-width: 45% !important;
+          }
+          #faq > div > div:nth-child(2) > div:last-child {
+            flex: 1 1 55% !important;
+            min-width: 0 !important;
+            margin-top: 0 !important;
+          }
+          .qd-hero-content,
+          .qd-hero-content > div:last-child {
+            max-width: 100% !important;
+          }
+          #services p,
+          #about p {
+            max-width: 100% !important;
+          }
+          .qd-about-photo {
+            max-width: 100% !important;
+            transform: none !important;
+          }
+          .qd-nav {
+            gap: 12px !important;
+          }
+          .qd-navlink {
+            font-size: 12.5px !important;
+          }
+          .qd-rating-row {
+            gap: 4px !important;
+          }
+          .qd-rating-stars {
+            font-size: 14px !important;
+            letter-spacing: 0.05em !important;
+          }
+        }
+
+
+        .qd-nav-panel {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          position: relative;
+          z-index: 1;
+        }
+
+        header {
+          position: relative;
+          overflow: hidden;
+        }
+
+        .qd-nav-sheen {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 210px;
+          right: 0;
+          pointer-events: none;
+          z-index: 0;
+          background: linear-gradient(115deg, transparent 5%, rgba(255, 255, 255, .9) 50%, transparent 95%);
+          background-size: 220% 100%;
+          animation: qd-nav-sheen 4.5s ease-in-out infinite;
+        }
+
+        @keyframes qd-nav-sheen {
+          0% {
+            background-position: 160% 0;
+          }
+
+          55%,
+          100% {
+            background-position: -60% 0;
+          }
+        }
+
+        .qd-navlink {
+          transition: color .14s ease, border-color .14s ease;
+        }
+
+        .qd-navlink:hover,
+        .qd-navlink:focus-visible {
+          color: var(--color-accent-700) !important;
+          border-bottom-color: var(--color-accent) !important;
+        }
+
+        @media (max-width: 720px) {
+          .qd-why {
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          }
+        }
+
+        @media (max-width: 420px) {
+          .qd-why {
+            grid-template-columns: minmax(0, 1fr) !important;
+          }
+        }
+
+        @media (max-width: 920px) {
+          .qd-about-photo {
+            margin-top: 24px !important;
+            max-width: none !important;
+            transform: none !important;
+          }
+        }
+
+        .qd-work-table-wrap {
+          overflow-x: auto;
+        }
+
+        @media (max-width: 760px) {
+          .qd-work-table, .qd-work-table tbody, .qd-work-table tr, .qd-work-table td {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+          }
+          .qd-work-table thead {
+            display: none;
+          }
+          .qd-work-table tr {
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--color-divider);
+          }
+          .qd-work-table tr:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+          }
+          .qd-work-table td {
+            padding: 6px 0 !important;
+            border: none !important;
+          }
+          .qd-work-table td:nth-child(2) {
+            font-weight: 600;
+            color: var(--color-accent-800) !important;
+          }
+        }
+
+        /* Primary action — keep the label white on every state */
+        .btn-primary,
+        .btn-primary:hover,
+        .btn-primary:active,
+        .btn-primary:focus-visible {
+          color: #fff;
+        }
+
+        .btn-primary:hover {
+          background: color-mix(in srgb, var(--color-accent) 86%, #000);
+          border-color: color-mix(in srgb, var(--color-accent) 70%, #000);
+        }
+
+        .btn-primary:active {
+          background: color-mix(in srgb, var(--color-accent) 74%, #000);
+        }
+
+        /* --- from Careers (tokens folded into the shared :root above; kept only the
+   rules not already covered) --- */
+        a {
+          color: var(--color-accent-700);
+          text-decoration: none;
+        }
+
+        a:hover {
+          color: var(--color-accent-800);
+        }
+
+        .qd-navlink {
+          transition: color .14s ease, border-color .14s ease;
+        }
+
+        .qd-navlink:hover,
+        .qd-navlink:focus-visible {
+          color: var(--color-accent-700) !important;
+          border-bottom-color: var(--color-accent) !important;
+        }
+
+        .btn-primary,
+        .btn-primary:hover,
+        .btn-primary:focus-visible {
+          color: #fff;
+        }
+
+        .btn-primary {
+          background: var(--qd-gradient) !important;
+          border-color: transparent !important;
+        }
+
+        summary::-webkit-details-marker {
+          display: none;
+        }
+
+        summary:hover {
+          color: var(--color-accent-700);
+        }
+
+        .qd-plus {
+          transition: transform .18s ease;
+          flex: none;
+          position: relative;
+          width: 18px;
+          height: 18px;
+        }
+
+        .qd-plus span {
+          position: absolute;
+          background: var(--color-accent);
+        }
+
+        details[open] .qd-plus {
+          transform: rotate(45deg);
+        }
+
+        /* --- from Legal (tokens folded into the shared :root above) --- */
+
+        /* Service Constellation hero visual */
+        @keyframes qd-travel {
+          from {
+            offset-distance: 0%;
+          }
+
+          to {
+            offset-distance: 100%;
+          }
+        }
+
+        @keyframes qd-halo {
+          0% {
+            transform: scale(1);
+            opacity: .38;
+          }
+
+          80% {
+            opacity: .05;
+          }
+
+          100% {
+            transform: scale(1.4);
+            opacity: 0;
+          }
+        }
+
+        @keyframes qd-spin {
+          to {
+            transform: rotate(360deg);
+          }
+        }
+
+        .qd-const-dot {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: var(--color-accent);
+          box-shadow: 0 0 0 4px var(--color-accent-200);
+          offset-rotate: 0deg;
+          transform: translate(2px, -13px);
+          animation: qd-travel 1.8s linear infinite;
+          transition: opacity .6s ease;
+        }
+
+        @keyframes qd-dash-march {
+          to {
+            stroke-dashoffset: -18;
+          }
+        }
+
+        @keyframes qd-line-glow {
+
+          0%,
+          100% {
+            opacity: .75;
+            filter: drop-shadow(0 0 0 rgba(89, 128, 166, 0));
+          }
+
+          50% {
+            opacity: 1;
+            filter: drop-shadow(0 0 3px var(--color-accent-400));
+          }
+        }
+
+        .qd-const-lines line[stroke-dasharray="3 6"] {
+          animation: qd-dash-march 1.6s linear infinite, qd-line-glow 2.2s ease-in-out infinite;
+        }
+
+        .qd-const-dot.d2 {
+          animation-delay: .9s;
+        }
+
+        .qd-const-l0 {
+          offset-path: path('M320 250 L320 65');
+        }
+
+        .qd-const-l1 {
+          offset-path: path('M320 250 L496 193');
+        }
+
+        .qd-const-l2 {
+          offset-path: path('M320 250 L429 400');
+        }
+
+        .qd-const-l3 {
+          offset-path: path('M320 250 L211 400');
+        }
+
+        .qd-const-l4 {
+          offset-path: path('M320 250 L144 193');
+        }
+
+        .qd-const-halo {
+          animation: qd-halo 3.2s cubic-bezier(.25, .1, .25, 1) infinite;
+        }
+
+        .qd-const-orbit {
+          animation: qd-spin 60s linear infinite;
+        }
+
+        .qd-const-lines line {
+          transition: stroke .5s ease, stroke-width .5s ease, stroke-dasharray .5s ease, opacity .5s ease;
+        }
+
+        .qd-const-node {
+          transition: background .25s, color .25s, box-shadow .25s, transform .25s;
+          cursor: pointer;
+        }
+
+        .qd-const-node:hover {
+          transform: translateY(-2px);
+        }
+
+        .qd-const-node:focus-visible {
+          outline: 3px solid #f28c28;
+          outline-offset: 3px;
+        }
+
+        .qd-const-chip:hover {
+          background: var(--color-accent) !important;
+          color: #fff !important;
+          border-color: var(--color-accent) !important;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+          .qd-const-dot,
+          .qd-const-orbit {
+            animation: none !important;
+          }
+        }
+
+        @media (max-width: 1220px) {
+          .qd-logos-wrap {
+            margin-top: 0 !important;
+          }
+          .qd-constellation {
+            transform: scale(0.742);
+            transform-origin: top center;
+            margin-bottom: -110px;
+            margin-top: 20px;
+            align-self: center;
+          }
+        }
+      @media (max-width: 600px) {
+  .qd-footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .qd-footer-grid > div:first-child {
+    grid-column: 1 / -1;
+    border-bottom: 1px solid rgba(255,255,255,0.22);
+    padding-bottom: 28px;
+    margin-bottom: 4px;
+  }
+  .qd-footer-grid > div:first-child p:first-of-type {
+    max-width: 260px !important;
+    line-height: 1.6 !important;
+  }
+  .qd-footer-grid > div:last-child {
+    grid-column: 1 / -1;
+    margin-top: -14px;
+  }
+  .qd-footer-grid > div:nth-child(3) {
+    padding-left: 12px;
+  }
+  
+  .qd-footer-grid + div {
+    flex-direction: column;
+    justify-content: center !important;
+    align-items: center;
+    text-align: center;
+    gap: 16px !important;
+  }
+  .qd-footer-grid + div > span:first-child {
+    line-height: 1.6;
+    max-width: 250px;
+  }
+  .qd-footer-grid + div > span:last-child {
+    justify-content: center;
+  }
+
+  .qd-constellation {
+    transform: scale(0.592);
+    margin-bottom: -180px;
+  }
+
+  .qd-logos-wrap img {
+    transform: scale(0.65) !important;
+  }
+
+  .qd-logos-wrap .qd-lrow > div {
+    height: 55px !important;
+    padding: 0 !important;
+  }
+}
+      </style>
+    <header
+        style="position:sticky;top:0;z-index:30;width:100%;background:var(--color-bg);box-shadow:0 1px 0 var(--color-divider),0 2px 10px -6px rgba(1,20,40,.12)">
+
+        <div
+          style="max-width:1200px; margin: 0 auto; padding: 9px 28px; display: flex; align-items: center; gap: 28px; flex-wrap: wrap; position: relative; overflow: hidden; background: linear-gradient(to right, var(--color-bg) 0, var(--color-bg) 210px, var(--color-accent-100) 260px, var(--color-accent-200) 100%)">
+          <a href="#top"
+            style="display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--color-text);margin-right:auto">
+            <img src="assets/brand/q-dat-lockup.png" alt="Q-DAT" width="158" height="51"
+              style="display:block;width:158px;height:auto">
+          </a>
+          <button type="button" class="qd-hamburger" aria-label="Toggle navigation" aria-expanded="{{ mobileMenuOpen }}" onClick="{{ toggleMobileMenu }}">
+            <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 12h16M4 6h16M4 18h16" />
+            </svg>
+          </button>
+          <a class="qd-skip" href="#top">Skip to content</a>
+          <div class="qd-nav-panel" data-open="{{ mobileMenuOpen }}">
+         
+<nav class="qd-nav" style="display:flex;gap:25px;align-items:center;flex-wrap:wrap;position:relative;z-index:1;">
+  <a href="#services" class="qd-navlink" onClick="{{ closeMobileMenu }}"
+    style="text-decoration:none;color:var(--color-text);font-size:13.5px;font-weight:600;letter-spacing:0.01em;padding:5px 2px;border-bottom:2px solid transparent">Services</a>
+
+  <a href="#industries" class="qd-navlink" onClick="{{ closeMobileMenu }}"
+    style="text-decoration:none;color:var(--color-text);font-size:13.5px;font-weight:500;letter-spacing:0.01em;padding:5px 2px;border-bottom:2px solid transparent">Industries</a>
+
+  <a href="#work" class="qd-navlink" onClick="{{ closeMobileMenu }}"
+    style="text-decoration:none;color:var(--color-text);font-size:13.5px;font-weight:500;letter-spacing:0.01em;padding:5px 2px;border-bottom:2px solid transparent">Work</a>
+
+  <a href="#faq" class="qd-navlink" onClick="{{ closeMobileMenu }}"
+    style="text-decoration:none;color:var(--color-text);font-size:13.5px;font-weight:500;letter-spacing:0.01em;padding:5px 2px;border-bottom:2px solid transparent">FAQ</a>
+
+  <a href="#about" class="qd-navlink" onClick="{{ closeMobileMenu }}"
+    style="text-decoration:none;color:var(--color-text);font-size:13.5px;font-weight:500;letter-spacing:0.01em;padding:5px 2px;border-bottom:2px solid transparent">About</a>
+
+  <a href="#/careers" class="qd-navlink" onClick="{{ closeMobileMenu }}"
+    style="text-decoration:none;color:var(--color-text);font-size:13.5px;font-weight:500;letter-spacing:0.01em;padding:5px 2px;border-bottom:2px solid transparent">Careers</a>
+</nav>
+            <a href="#contact" class="btn btn-primary qd-header-cta" style="position:relative;z-index:1" onClick="{{ closeMobileMenu }}">Start a free
+              trial project</a>
+          </div>
+          <div class="qd-nav-sheen" aria-hidden="true"></div>
+        </div>
+      </header>
+    <main>
+      
+  <div style="max-width: 1200px; margin: 0 auto; padding: 120px 28px 60px;">
+    <h1 style="font-family: var(--font-heading); font-size: clamp(32px, 4.2vw, 48px); color: var(--color-accent-800); margin-bottom: 40px; margin-top:0;">Sitemap</h1>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+      
+      <div>
+        <h2 style="font-family: var(--font-heading); font-size: 20px; color: var(--color-accent-700); margin-bottom: 16px; padding-bottom: 8px;">Company</h2>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+          <li><a href="index.html#top" class="qd-navlink" style="color: var(--color-text); text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.2s ease;">Home</a></li>
+          <li><a href="index.html#about" class="qd-navlink" style="color: var(--color-text); text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.2s ease;">About Us</a></li>
+          <li><a href="index.html#work" class="qd-navlink" style="color: var(--color-text); text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.2s ease;">Selected Work</a></li>
+          <li><a href="index.html#industries" class="qd-navlink" style="color: var(--color-text); text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.2s ease;">Industries</a></li>
+          <li><a href="index.html#faq" class="qd-navlink" style="color: var(--color-text); text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.2s ease;">FAQ</a></li>
+          <li><a href="index.html#/legal-privacy" class="qd-navlink" style="color: var(--color-text); text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.2s ease;">Privacy Policy</a></li>
+          <li><a href="index.html#/legal-terms" class="qd-navlink" style="color: var(--color-text); text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.2s ease;">Terms of Service</a></li>
+          <li><a href="index.html#/legal-cookies" class="qd-navlink" style="color: var(--color-text); text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.2s ease;">Cookie Policy</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 style="font-family: var(--font-heading); font-size: 20px; color: var(--color-accent-700); margin-bottom: 16px; padding-bottom: 8px;">Services</h2>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+          <li><a href="index.html#services" class="qd-navlink" style="color: var(--color-text); text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.2s ease;">All Services Overview</a></li>
+          <li><a href="index.html#/service-data-entry" class="qd-navlink" style="color: var(--color-text); text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.2s ease;">Data Entry Services</a></li>
+          <li><a href="index.html#/service-back-office" class="qd-navlink" style="color: var(--color-text); text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.2s ease;">Back-Office Operations</a></li>
+          <li><a href="index.html#/service-application-support" class="qd-navlink" style="color: var(--color-text); text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.2s ease;">Application Support</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 style="font-family: var(--font-heading); font-size: 20px; color: var(--color-accent-700); margin-bottom: 16px; padding-bottom: 8px;">Careers</h2>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+          <li><a href="index.html#/careers" class="qd-navlink" style="color: var(--color-text); text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.2s ease;">Open Roles</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 style="font-family: var(--font-heading); font-size: 20px; color: var(--color-accent-700); margin-bottom: 16px; padding-bottom: 8px;">Contact & Support</h2>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+          <li><a href="index.html#contact" class="qd-navlink" style="color: var(--color-text); text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.2s ease;">Start a Free Trial / Contact Sales</a></li>
+          <li><a href="mailto:contact@q-dat.com" class="qd-navlink" style="color: var(--color-text); text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.2s ease;">contact@q-dat.com</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+    </main>
+    <footer class="qd-gradient-band" style="border-top:1px solid #013b6a">
+        <div style="max-width:1200px;margin:0 auto;padding:36px 28px 20px">
+          <div class="qd-footer-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px">
+            <div>
+              <div style="margin-bottom:10px">
+                <a href="index.html#top" style="display:inline-block;background:#fff;padding:7px 11px;border-radius:6px">
+                  <img src="assets/brand/q-dat-lockup.png" alt="Q-DAT" width="180" height="58"
+                    style="display:block;width:180px;height:auto">
+                </a>
+              </div>
+              <p style="margin:0;font-size:12.5px;line-height:1.4;color:var(--color-neutral-700);max-width:32ch">Q-DAT
+                IT Solutions Pvt. Ltd.<br>#109/7, 3rd Floor, 20th Main, WOC Road, 5th Block, Rajajinagar, Bangalore
+                560010</p>
+              <p style="margin:6px 0 0;font-size:12.5px"><a href="https://www.q-dat.com"
+                  style="color:var(--color-accent-700)">www.q-dat.com</a></p>
+            </div>
+            <div>
+              <div
+                style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-neutral-700);margin-bottom:10px">
+                Company</div>
+              <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px">
+                <li><a href="index.html#about" style="text-decoration:none;color:var(--color-text);font-size:14px">About us</a>
+                </li>
+                <li><a href="index.html#/careers" style="text-decoration:none;color:var(--color-text);font-size:14px">Careers</a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <div
+                style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-neutral-700);margin-bottom:10px">
+                Explore</div>
+              <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px">
+                <li><a href="index.html#services" style="text-decoration:none;color:var(--color-text);font-size:14px">Services</a>
+                </li>
+                <li><a href="index.html#industries"
+                    style="text-decoration:none;color:var(--color-text);font-size:14px">Industries</a></li>
+                <li><a href="index.html#work" style="text-decoration:none;color:var(--color-text);font-size:14px">Selected
+                    work</a></li>
+                <li><a href="index.html#faq" style="text-decoration:none;color:var(--color-text);font-size:14px">FAQ</a></li>
+              </ul>
+            </div>
+            <div>
+              <div
+                style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-neutral-700);margin-bottom:10px">
+                Contact us</div>
+              <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px">
+                <li><a href="mailto:contact@q-dat.com" style="font-size:14px">contact@q-dat.com</a></li>
+                <li><a tabindex="0" style="font-size:14px; cursor:pointer">+91-8904090015</a></li>
+              </ul>
+            </div>
+          </div>
+          <div
+            style="margin-top:22px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.22);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12px;color:var(--color-neutral-700)">
+            <span>© 2026 Q-DAT IT Solutions Pvt. Ltd. · Bangalore, India</span>
+            <span style="display:flex;flex-wrap:wrap;gap:20px">
+              <a href="index.html#/legal-privacy" style="color:var(--color-neutral-700);font-size:12px">Privacy Policy</a>
+              <a href="index.html#/legal-terms" style="color:var(--color-neutral-700);font-size:12px">Terms of Service</a>
+              <a href="index.html#/legal-cookies" style="color:var(--color-neutral-700);font-size:12px">Cookie Policy</a>
+            </span>
+          </div>
+        </div>
+      </footer>
+  </x-dc>
+  <script type="text/x-dc" data-dc-script>
+    class Component extends DCLogic {
+      state = {
+        mobileMenuOpen: false
+      };
+      
+      componentDidMount() {
+        this.syncHeaderHeight();
+        window.addEventListener("resize", this.syncHeaderHeight);
+        
+        // Intercept all header links to navigate to index.html with the correct hash
+        const links = document.querySelectorAll('header a[href^="#"]');
+        links.forEach(link => {
+          link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            e.preventDefault();
+            window.location.href = 'index.html' + href;
+          });
+        });
+      }
+      
+      componentWillUnmount() {
+        window.removeEventListener("resize", this.syncHeaderHeight);
+        if (this.headerRO) this.headerRO.disconnect();
+      }
+      
+      syncHeaderHeight = () => {
+        const el = document.querySelector("header");
+        if (!el) return;
+        const h = el.getBoundingClientRect().height;
+        if (h > 0) document.documentElement.style.setProperty("--qd-header-h", h + "px");
+        if (el !== this.headerObserved && typeof ResizeObserver !== "undefined") {
+          if (this.headerRO) this.headerRO.disconnect();
+          this.headerObserved = el;
+          this.headerRO = new ResizeObserver(this.syncHeaderHeight);
+          this.headerRO.observe(el);
+        }
+      };
+
+      toggleMobileMenu = () => {
+        this.setState({ mobileMenuOpen: !this.state.mobileMenuOpen });
+      };
+      
+      closeMobileMenu = () => {
+        this.setState({ mobileMenuOpen: false });
+      };
+    }
+  </script>
+</body>
+</html>
