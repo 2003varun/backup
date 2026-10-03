@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -1657,7 +1657,7 @@
               </figure>
             </div>
             <div class="qd-areas" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px">
-              <a href="#/service-data-entry"
+              <a href="#/service-data-entry" onClick="{{ forceTop }}"
                 style="text-decoration:none;color:inherit;padding:28px 26px;border:1px solid var(--color-divider);background:#fff;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease"
                 style-hover="transform:translateY(-6px);box-shadow:var(--shadow-hover);border-color:var(--color-accent-400)">
                 <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px">
@@ -1706,7 +1706,7 @@
                   </div>
                 </div>
               </a>
-              <a href="#/service-back-office"
+              <a href="#/service-back-office" onClick="{{ forceTop }}"
                 style="text-decoration:none;color:inherit;padding:28px 26px;border:1px solid var(--color-divider);background:#fff;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease"
                 style-hover="transform:translateY(-6px);box-shadow:var(--shadow-hover);border-color:var(--color-accent-400)">
                 <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px">
@@ -1762,7 +1762,7 @@
                   </div>
                 </div>
               </a>
-              <a href="#/service-application-support"
+              <a href="#/service-application-support" onClick="{{ forceTop }}"
                 style="text-decoration:none;color:inherit;padding:28px 26px;border:1px solid var(--color-divider);background:#fff;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease"
                 style-hover="transform:translateY(-6px);box-shadow:var(--shadow-hover);border-color:var(--color-accent-400)">
                 <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px">
@@ -3581,6 +3581,19 @@ class Component extends DCLogic {
     }
   };
 
+  forceTop = () => {
+    // iOS Safari preserves scroll position across SPA hash changes due to
+    // scroll anchoring and history state inheritance. Calling scrollTo(0,0)
+    // synchronously in hashchange is often ignored or overridden. By
+    // triggering this only on explicit clicks to service cards, we force
+    // the scroll to top *after* the render, without breaking the native
+    // scroll restoration on popstate (back/forward) or pageshow (BFCache).
+    const jump = () => window.scrollTo(0, 0);
+    requestAnimationFrame(jump);
+    setTimeout(jump, 50);
+    setTimeout(jump, 150);
+  };
+
   // The five practices shown in the hero's Service Constellation, matching
   // the site's real service groups (names align with the Services section).
   static CONST_CATS = [
@@ -3936,6 +3949,7 @@ class Component extends DCLogic {
       enquiryOpen: !this.state.enquirySent,
       enquirySending: this.state.enquirySending,
       submitLabel: this.state.enquirySending ? "Sending…" : "Submit",
+      forceTop: this.forceTop,
 
       submitEnquiry: this.submitEnquiry,
       resetEnquiry: this.resetEnquiry,
