@@ -10,7 +10,7 @@
   <meta name="description" content="Sitemap for Q-DAT Data Operations and Technology Services.">
   <script src="./support.js"></script>
 </head>
-<body style="margin: 0; padding: 0; background-color: var(--color-surface); font-family: 'Inter', sans-serif;">
+<body style="margin: 0; padding: 0; background-color: var(--color-surface); font-family: var(--font-body);">
   <x-dc>
     <style>
         html {
@@ -45,6 +45,8 @@
           --color-text: #22272e;
           --shadow-lg: 0 24px 48px -12px rgba(1, 20, 40, .35);
           --shadow-hover: 0 10px 20px -10px rgba(1, 20, 40, .22);
+          --font-heading: 'Fira Sans Condensed', sans-serif;
+          --font-body: 'Fira Sans', sans-serif;
         }
 
         body {
@@ -1113,10 +1115,10 @@
 }
       </style>
     <header
-        style="position:sticky;top:0;z-index:30;width:100%;background:var(--color-bg);box-shadow:0 1px 0 var(--color-divider),0 2px 10px -6px rgba(1,20,40,.12)">
+        style="font-family: 'Fira Sans', sans-serif; position:sticky;top:0;z-index:30;width:100%;background:var(--color-bg);box-shadow:0 1px 0 var(--color-divider),0 2px 10px -6px rgba(1,20,40,.12)">
 
         <div
-          style="max-width:1200px; margin: 0 auto; padding: 9px 28px; display: flex; align-items: center; gap: 28px; flex-wrap: wrap; position: relative; overflow: hidden; background: linear-gradient(to right, var(--color-bg) 0, var(--color-bg) 210px, var(--color-accent-100) 260px, var(--color-accent-200) 100%)">
+          style="max-width:1200px; margin: 0 auto; padding: 9px 28px; display: flex; align-items: center; column-gap: 28px; row-gap: 16px; flex-wrap: wrap; position: relative; overflow: hidden; background: linear-gradient(to right, var(--color-bg) 0, var(--color-bg) 210px, var(--color-accent-100) 260px, var(--color-accent-200) 100%)">
           <a href="#top"
             style="display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--color-text);margin-right:auto">
             <img src="assets/brand/q-dat-lockup.png" alt="Q-DAT" width="158" height="51"
@@ -1129,27 +1131,21 @@
           </button>
           <a class="qd-skip" href="#top">Skip to content</a>
           <div class="qd-nav-panel" data-open="{{ mobileMenuOpen }}">
-         
-<nav class="qd-nav" style="display:flex;gap:25px;align-items:center;flex-wrap:wrap;position:relative;z-index:1;">
-  <a href="#services" class="qd-navlink" onClick="{{ closeMobileMenu }}"
-    style="text-decoration:none;color:var(--color-text);font-size:13.5px;font-weight:600;letter-spacing:0.01em;padding:5px 2px;border-bottom:2px solid transparent">Services</a>
-
-  <a href="#industries" class="qd-navlink" onClick="{{ closeMobileMenu }}"
-    style="text-decoration:none;color:var(--color-text);font-size:13.5px;font-weight:500;letter-spacing:0.01em;padding:5px 2px;border-bottom:2px solid transparent">Industries</a>
-
-  <a href="#work" class="qd-navlink" onClick="{{ closeMobileMenu }}"
-    style="text-decoration:none;color:var(--color-text);font-size:13.5px;font-weight:500;letter-spacing:0.01em;padding:5px 2px;border-bottom:2px solid transparent">Work</a>
-
-  <a href="#faq" class="qd-navlink" onClick="{{ closeMobileMenu }}"
-    style="text-decoration:none;color:var(--color-text);font-size:13.5px;font-weight:500;letter-spacing:0.01em;padding:5px 2px;border-bottom:2px solid transparent">FAQ</a>
-
-  <a href="#about" class="qd-navlink" onClick="{{ closeMobileMenu }}"
-    style="text-decoration:none;color:var(--color-text);font-size:13.5px;font-weight:500;letter-spacing:0.01em;padding:5px 2px;border-bottom:2px solid transparent">About</a>
-
-  <a href="#/careers" class="qd-navlink" onClick="{{ closeMobileMenu }}"
-    style="text-decoration:none;color:var(--color-text);font-size:13.5px;font-weight:500;letter-spacing:0.01em;padding:5px 2px;border-bottom:2px solid transparent">Careers</a>
-</nav>
-            <a href="#contact" class="btn btn-primary qd-header-cta" style="position:relative;z-index:1" onClick="{{ closeMobileMenu }}">Start a free
+            <nav class="qd-nav" style="display:flex;gap:20px;flex-wrap:wrap;position:relative;z-index:1">
+              <a href="index.html#services" class="qd-navlink" onClick="{{ closeMobileMenu }}"
+                style="text-decoration:none;color:var(--color-text);font-size:13.5px;font-weight:500;letter-spacing:0.01em;padding:5px 2px;border-bottom:2px solid transparent">Services</a>
+              <a href="index.html#industries" class="qd-navlink" onClick="{{ closeMobileMenu }}"
+                style="text-decoration:none;color:var(--color-text);font-size:13.5px;font-weight:500;letter-spacing:0.01em;padding:5px 2px;border-bottom:2px solid transparent">Industries</a>
+              <a href="index.html#work" class="qd-navlink" onClick="{{ closeMobileMenu }}"
+                style="text-decoration:none;color:var(--color-text);font-size:13.5px;font-weight:500;letter-spacing:0.01em;padding:5px 2px;border-bottom:2px solid transparent">Work</a>
+              <a href="index.html#faq" class="qd-navlink" onClick="{{ closeMobileMenu }}"
+                style="text-decoration:none;color:var(--color-text);font-size:13.5px;font-weight:500;letter-spacing:0.01em;padding:5px 2px;border-bottom:2px solid transparent">FAQ</a>
+              <a href="index.html#about" class="qd-navlink" onClick="{{ closeMobileMenu }}"
+                style="text-decoration:none;color:var(--color-text);font-size:13.5px;font-weight:500;letter-spacing:0.01em;padding:5px 2px;border-bottom:2px solid transparent">About</a>
+              <a href="index.html#/careers" class="qd-navlink" onClick="{{ closeMobileMenu }}"
+                style="text-decoration:none;color:var(--color-text);font-size:13.5px;font-weight:500;letter-spacing:0.01em;padding:5px 2px;border-bottom:2px solid transparent">Careers</a>
+            </nav>
+            <a href="index.html#contact" class="btn btn-primary qd-header-cta" style="position:relative;z-index:1" onClick="{{ closeMobileMenu }}">Start a free
               trial project</a>
           </div>
           <div class="qd-nav-sheen" aria-hidden="true"></div>
@@ -1157,47 +1153,47 @@
       </header>
     <main>
       
-  <div style="max-width: 1200px; margin: 0 auto; padding: 120px 28px 60px;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 40px 28px 60px;">
     <h1 style="font-family: var(--font-heading); font-size: clamp(32px, 4.2vw, 48px); color: var(--color-accent-800); margin-bottom: 40px; margin-top:0;">Sitemap</h1>
     
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
       
       <div>
-        <h2 style="font-family: var(--font-heading); font-size: 20px; color: var(--color-accent-700); margin-bottom: 16px; padding-bottom: 8px;">Company</h2>
+        <h2 style="font-family: var(--font-heading); font-size: 15px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 16px;">Company</h2>
         <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
-          <li><a href="index.html#top" class="qd-navlink" style="color: var(--color-text); text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.2s ease;">Home</a></li>
-          <li><a href="index.html#about" class="qd-navlink" style="color: var(--color-text); text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.2s ease;">About Us</a></li>
-          <li><a href="index.html#work" class="qd-navlink" style="color: var(--color-text); text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.2s ease;">Selected Work</a></li>
-          <li><a href="index.html#industries" class="qd-navlink" style="color: var(--color-text); text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.2s ease;">Industries</a></li>
-          <li><a href="index.html#faq" class="qd-navlink" style="color: var(--color-text); text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.2s ease;">FAQ</a></li>
-          <li><a href="index.html#/legal-privacy" class="qd-navlink" style="color: var(--color-text); text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.2s ease;">Privacy Policy</a></li>
-          <li><a href="index.html#/legal-terms" class="qd-navlink" style="color: var(--color-text); text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.2s ease;">Terms of Service</a></li>
-          <li><a href="index.html#/legal-cookies" class="qd-navlink" style="color: var(--color-text); text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.2s ease;">Cookie Policy</a></li>
+          <li><a href="index.html#top" class="qd-navlink" style="color: var(--color-text); text-decoration: none; transition: color 0.2s ease;">Home</a></li>
+          <li><a href="index.html#about" class="qd-navlink" style="color: var(--color-text); text-decoration: none; transition: color 0.2s ease;">About Us</a></li>
+          <li><a href="index.html#work" class="qd-navlink" style="color: var(--color-text); text-decoration: none; transition: color 0.2s ease;">Selected Work</a></li>
+          <li><a href="index.html#industries" class="qd-navlink" style="color: var(--color-text); text-decoration: none; transition: color 0.2s ease;">Industries</a></li>
+          <li><a href="index.html#faq" class="qd-navlink" style="color: var(--color-text); text-decoration: none; transition: color 0.2s ease;">FAQ</a></li>
+          <li><a href="index.html#/legal-privacy" class="qd-navlink" style="color: var(--color-text); text-decoration: none; transition: color 0.2s ease;">Privacy Policy</a></li>
+          <li><a href="index.html#/legal-terms" class="qd-navlink" style="color: var(--color-text); text-decoration: none; transition: color 0.2s ease;">Terms of Service</a></li>
+          <li><a href="index.html#/legal-cookies" class="qd-navlink" style="color: var(--color-text); text-decoration: none; transition: color 0.2s ease;">Cookie Policy</a></li>
         </ul>
       </div>
 
       <div>
-        <h2 style="font-family: var(--font-heading); font-size: 20px; color: var(--color-accent-700); margin-bottom: 16px; padding-bottom: 8px;">Services</h2>
+        <h2 style="font-family: var(--font-heading); font-size: 15px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 16px;">Services</h2>
         <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
-          <li><a href="index.html#services" class="qd-navlink" style="color: var(--color-text); text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.2s ease;">All Services Overview</a></li>
-          <li><a href="index.html#/service-data-entry" class="qd-navlink" style="color: var(--color-text); text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.2s ease;">Data Entry Services</a></li>
-          <li><a href="index.html#/service-back-office" class="qd-navlink" style="color: var(--color-text); text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.2s ease;">Back-Office Operations</a></li>
-          <li><a href="index.html#/service-application-support" class="qd-navlink" style="color: var(--color-text); text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.2s ease;">Application Support</a></li>
+          <li><a href="index.html#services" class="qd-navlink" style="color: var(--color-text); text-decoration: none; transition: color 0.2s ease;">All Services Overview</a></li>
+          <li><a href="index.html#/service-data-entry" class="qd-navlink" style="color: var(--color-text); text-decoration: none; transition: color 0.2s ease;">Data Entry Services</a></li>
+          <li><a href="index.html#/service-back-office" class="qd-navlink" style="color: var(--color-text); text-decoration: none; transition: color 0.2s ease;">Back-Office Operations</a></li>
+          <li><a href="index.html#/service-application-support" class="qd-navlink" style="color: var(--color-text); text-decoration: none; transition: color 0.2s ease;">Application Support</a></li>
         </ul>
       </div>
 
       <div>
-        <h2 style="font-family: var(--font-heading); font-size: 20px; color: var(--color-accent-700); margin-bottom: 16px; padding-bottom: 8px;">Careers</h2>
+        <h2 style="font-family: var(--font-heading); font-size: 15px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 16px;">Careers</h2>
         <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
-          <li><a href="index.html#/careers" class="qd-navlink" style="color: var(--color-text); text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.2s ease;">Open Roles</a></li>
+          <li><a href="index.html#/careers" class="qd-navlink" style="color: var(--color-text); text-decoration: none; transition: color 0.2s ease;">Open Roles</a></li>
         </ul>
       </div>
 
       <div>
-        <h2 style="font-family: var(--font-heading); font-size: 20px; color: var(--color-accent-700); margin-bottom: 16px; padding-bottom: 8px;">Contact & Support</h2>
+        <h2 style="font-family: var(--font-heading); font-size: 15px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 16px;">Contact & Support</h2>
         <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
-          <li><a href="index.html#contact" class="qd-navlink" style="color: var(--color-text); text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.2s ease;">Start a Free Trial / Contact Sales</a></li>
-          <li><a href="mailto:contact@q-dat.com" class="qd-navlink" style="color: var(--color-text); text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.2s ease;">contact@q-dat.com</a></li>
+          <li><a href="index.html#contact" class="qd-navlink" style="color: var(--color-text); text-decoration: none; transition: color 0.2s ease;">Start a Free Trial / Contact Sales</a></li>
+          <li><a href="mailto:contact@q-dat.com" class="qd-navlink" style="color: var(--color-text); text-decoration: none; transition: color 0.2s ease;">contact@q-dat.com</a></li>
         </ul>
       </div>
 
