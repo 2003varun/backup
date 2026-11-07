@@ -811,6 +811,58 @@
           }
         }
 
+        .qd-service-intro-grid {
+          display: grid;
+          grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+          gap: 48px;
+          align-items: center;
+        }
+
+        .qd-service-intro-content {
+          min-width: 0;
+        }
+
+        .qd-service-intro-media {
+          min-width: 0;
+          width: 100%;
+        }
+
+        .qd-service-intro-media img {
+          display: block;
+          width: 100%;
+          height: auto;
+          aspect-ratio: 1 / 1;
+          object-fit: cover;
+          border-radius: 12px;
+          border: 1px solid var(--color-divider);
+          box-shadow: 0 8px 24px -6px rgba(1, 20, 40, .12);
+        }
+
+        main[data-route="service-back-office"] .qd-service-intro-media img,
+        main[data-route="service-application-support"] .qd-service-intro-media img {
+          object-fit: contain;
+          aspect-ratio: auto;
+        }
+
+        @media (min-width: 861px) {
+          main[data-route="service-back-office"] .qd-service-intro-grid {
+            grid-template-columns: minmax(0, 54fr) minmax(0, 46fr);
+            gap: 36px;
+          }
+        }
+
+        @media (max-width: 860px) {
+          .qd-service-intro-grid {
+            grid-template-columns: minmax(0, 1fr);
+            gap: 32px;
+          }
+
+          .qd-service-intro-media {
+            max-width: 480px;
+            width: 100%;
+          }
+        }
+
         .qd-hamburger {
           display: none;
           background: none;
@@ -951,36 +1003,6 @@
           100% {
             background-position: -60% 0;
           }
-        }
-
-        .qd-dust {
-          position: absolute; top: 0; bottom: 0; left: 50%; right: 0;
-          pointer-events: none; z-index: 0;
-          --star: polygon(50% 0, 56% 44%, 100% 50%, 56% 56%, 50% 100%, 44% 56%, 0 50%, 44% 44%);
-        }
-        .qd-dust span {
-          position: absolute; width: 11px; height: 11px;
-          filter: drop-shadow(0 0 4px #fff) drop-shadow(0 0 10px rgba(190,225,255,.95));
-          animation: qd-spin 9s linear infinite;
-        }
-        .qd-dust span::before,
-        .qd-dust span::after { content: ""; position: absolute; inset: 0; }
-        .qd-dust span::before {
-          background: #fff; clip-path: var(--star);
-          animation: qd-tw2 var(--du, 1.6s) ease-in-out var(--dl, 0s) infinite;
-        }
-        .qd-dust span::after {
-          background: #e4f2ff; clip-path: var(--star);
-          transform: rotate(45deg) scale(.75);
-          animation: qd-tw2 var(--du, 1.6s) ease-in-out var(--dl, 0s) infinite reverse;
-        }
-        .qd-dust span:nth-child(3n) { width: 15px; height: 15px; --du: 2.1s; }
-        .qd-dust span:nth-child(4n) { width: 9px; height: 9px; }
-        .qd-dust span:nth-child(odd) { --dl: -.8s; }
-        @keyframes qd-tw2 { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
-        @keyframes qd-spin { to { transform: rotate(360deg); } }
-        @media (prefers-reduced-motion: reduce) {
-          .qd-nav-sheen, .qd-dust span, .qd-dust span::before, .qd-dust span::after { animation: none; }
         }
 
         .qd-navlink {
@@ -1363,18 +1385,6 @@
             </nav>
             <a href="#contact" class="btn btn-primary qd-header-cta" style="position:relative;z-index:1" onClick="{{ closeMobileMenu }}">Start a free
               trial project</a>
-          </div>
-          <div class="qd-dust" aria-hidden="true">
-            <span style="left:4%;top:20%"></span>
-            <span style="left:14%;top:62%"></span>
-            <span style="left:25%;top:30%"></span>
-            <span style="left:34%;top:74%"></span>
-            <span style="left:45%;top:18%"></span>
-            <span style="left:55%;top:58%"></span>
-            <span style="left:65%;top:28%"></span>
-            <span style="left:76%;top:70%"></span>
-            <span style="left:86%;top:22%"></span>
-            <span style="left:95%;top:56%"></span>
           </div>
           <div class="qd-nav-sheen" aria-hidden="true"></div>
         </div>
@@ -2825,31 +2835,38 @@
 
       <sc-if value="{{ routeIsServiceDataEntry }}" hint-placeholder-val="{{ false }}">
         <main data-route="service-data-entry">
-          <section style="max-width:900px;margin:0 auto;padding:48px 28px 20px">
+          <section style="max-width:1200px;margin:0 auto;padding:48px 28px 20px">
             <a href="#services"
               style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--color-accent-700);font-size:14px;font-weight:500;margin-bottom:18px">←
               Back to services</a>
-            <div style="display:flex;gap:14px;align-items:baseline;margin-bottom:16px">
-              <span
-                style="font-family:var(--font-heading);font-size:13px;letter-spacing:0.12em;color:var(--color-accent-700)">SERVICE
-                AREA 01</span>
-              <span
-                style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-700)">05
-                groups</span>
+            <div class="qd-service-intro-grid">
+              <div class="qd-service-intro-content">
+                <div style="display:flex;gap:14px;align-items:baseline;margin-bottom:16px">
+                  <span
+                    style="font-family:var(--font-heading);font-size:13px;letter-spacing:0.12em;color:var(--color-accent-700)">SERVICE
+                    AREA 01</span>
+                  <span
+                    style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-700)">05
+                    groups</span>
+                </div>
+                <h1 style="font-size:clamp(32px,4.4vw,46px);letter-spacing:-0.01em;margin:0">Data entry services</h1>
+                <p style="margin:20px 0 0;font-size:17px;line-height:1.7;color:var(--color-neutral-800);max-width:64ch;text-align: justify;">Most
+                  teams don't lack data - they lack time to enter it correctly, twice-check it, and keep it current while
+                  everything else on their plate keeps moving. A missed field in a customer record, a mistyped SKU, an order
+                  form that sat in someone's inbox for three days: none of it looks urgent until a customer or auditor finds
+                  it first.</p>
+                <p style="margin:14px 0 0;font-size:17px;line-height:1.7;color:var(--color-neutral-800);max-width:64ch;text-align: justify;">We
+                  take that work off your team's plate and run it as a discipline, not a favour squeezed between other jobs:
+                  the same records, entered and checked the same way, every time, so your systems can be trusted without
+                  someone re-verifying them. Our data entry team is based in Bangalore and serves clients across India, the
+                  Gulf, Europe and North America.</p>
+                <a href="#contact" class="btn btn-primary" style="display:inline-block;margin-top:28px">Start a free trial
+                  project</a>
+              </div>
+              <div class="qd-service-intro-media">
+                <img src="assets/images/Data entry.jpg" alt="Data Entry Services" width="640" height="640" loading="eager">
+              </div>
             </div>
-            <h1 style="font-size:clamp(32px,4.4vw,46px);letter-spacing:-0.01em;margin:0">Data entry services</h1>
-            <p style="margin:20px 0 0;font-size:17px;line-height:1.7;color:var(--color-neutral-800);max-width:64ch">Most
-              teams don't lack data — they lack time to enter it correctly, twice-check it, and keep it current while
-              everything else on their plate keeps moving. A missed field in a customer record, a mistyped SKU, an order
-              form that sat in someone's inbox for three days: none of it looks urgent until a customer or auditor finds
-              it first.</p>
-            <p style="margin:14px 0 0;font-size:17px;line-height:1.7;color:var(--color-neutral-800);max-width:64ch">We
-              take that work off your team's plate and run it as a discipline, not a favour squeezed between other jobs:
-              the same records, entered and checked the same way, every time, so your systems can be trusted without
-              someone re-verifying them. Our data entry team is based in Bangalore and serves clients across India, the
-              Gulf, Europe and North America.</p>
-            <a href="#contact" class="btn btn-primary" style="display:inline-block;margin-top:28px">Start a free trial
-              project</a>
           </section>
 
           <section style="border-top:1px solid var(--color-divider);background:var(--color-surface)">
@@ -2862,7 +2879,7 @@
                   style="display:block;text-decoration:none;color:inherit;padding:24px;background:var(--color-bg);border:1px solid var(--color-divider);border-radius:10px;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease"
                   style-hover="transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--color-accent-300)">
                   <h2 style="font-size:20px;margin:0">Data input &amp; digitisation</h2>
-                  <p style="margin:8px 0 0;font-size:15px;line-height:1.65;color:var(--color-neutral-700)">Physical
+                  <p style="margin:8px 0 0;text-align: justify;font-size:15px;line-height:1.65;color:var(--color-neutral-700)">Physical
                     documents, PDFs, scans and handwritten records go into Excel, databases, CRM and ERP the same way
                     every time, not however whoever is free that day happens to do it. We map each source format to your
                     target fields before a single record moves, so the structure holds even when the volume spikes. The
@@ -2873,7 +2890,7 @@
                   style="display:block;text-decoration:none;color:inherit;padding:24px;background:var(--color-bg);border:1px solid var(--color-divider);border-radius:10px;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease"
                   style-hover="transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--color-accent-300)">
                   <h2 style="font-size:20px;margin:0">Database maintenance</h2>
-                  <p style="margin:8px 0 0;font-size:15px;line-height:1.65;color:var(--color-neutral-700)">Customer,
+                  <p style="margin:8px 0 0;text-align: justify;font-size:15px;line-height:1.65;color:var(--color-neutral-700)">Customer,
                     supplier, employee and product records drift out of sync the moment more than one person or system
                     touches them. We run scheduled updates, cleansing and duplicate removal so the same person doesn't
                     appear three times under three spellings, and a supplier's changed address doesn't sit stale for
@@ -2884,7 +2901,7 @@
                   style="display:block;text-decoration:none;color:inherit;padding:24px;background:var(--color-bg);border:1px solid var(--color-divider);border-radius:10px;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease"
                   style-hover="transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--color-accent-300)">
                   <h2 style="font-size:20px;margin:0">E-commerce catalog management</h2>
-                  <p style="margin:8px 0 0;font-size:15px;line-height:1.65;color:var(--color-neutral-700)">A listing
+                  <p style="margin:8px 0 0;text-align: justify;font-size:15px;line-height:1.65;color:var(--color-neutral-700)">A listing
                     with the wrong price, a missing spec, or an image that doesn't match the product costs you a sale
                     and a support ticket before anyone internally notices. We keep product information, SKUs,
                     descriptions, pricing and image metadata consistent across every platform you sell on, checked
@@ -2895,7 +2912,7 @@
                   style="display:block;text-decoration:none;color:inherit;padding:24px;background:var(--color-bg);border:1px solid var(--color-divider);border-radius:10px;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease"
                   style-hover="transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--color-accent-300)">
                   <h2 style="font-size:20px;margin:0">Forms &amp; order processing</h2>
-                  <p style="margin:8px 0 0;font-size:15px;line-height:1.65;color:var(--color-neutral-700)">Online forms,
+                  <p style="margin:8px 0 0;text-align: justify;font-size:15px;line-height:1.65;color:var(--color-neutral-700)">Online forms,
                     invoices and purchase orders often land in a mix of formats and none of them match what your system
                     expects. We standardize each one before it enters your workflow, catching the missing field or
                     mismatched total at the door instead of three steps downstream. Your order pipeline moves at the
@@ -2905,7 +2922,7 @@
                   style="display:block;text-decoration:none;color:inherit;padding:24px;background:var(--color-bg);border:1px solid var(--color-divider);border-radius:10px;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease"
                   style-hover="transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--color-accent-300)">
                   <h2 style="font-size:20px;margin:0">Data verification &amp; auditing</h2>
-                  <p style="margin:8px 0 0;font-size:15px;line-height:1.65;color:var(--color-neutral-700)">Bad data
+                  <p style="margin:8px 0 0;text-align: justify;font-size:15px;line-height:1.65;color:var(--color-neutral-700)">Bad data
                     rarely announces itself; it just sits there until a customer complaint or a failed audit forces the
                     question. We cross-check records against primary sources on a schedule, flagging gaps and errors
                     before they compound into something expensive. You get a running account of how clean your data
@@ -2918,29 +2935,36 @@
 
       <sc-if value="{{ routeIsServiceBackOffice }}" hint-placeholder-val="{{ false }}">
         <main data-route="service-back-office">
-          <section style="max-width:900px;margin:0 auto;padding:48px 28px 20px">
+          <section style="max-width:1200px;margin:0 auto;padding:48px 28px 20px">
             <a href="#services"
               style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--color-accent-700);font-size:14px;font-weight:500;margin-bottom:18px">←
               Back to services</a>
-            <div style="display:flex;gap:14px;align-items:baseline;margin-bottom:16px">
-              <span
-                style="font-family:var(--font-heading);font-size:13px;letter-spacing:0.12em;color:var(--color-accent-700)">SERVICE
-                AREA 02</span>
-              <span
-                style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-700)">06
-                groups</span>
+            <div class="qd-service-intro-grid">
+              <div class="qd-service-intro-content">
+                <div style="display:flex;gap:14px;align-items:baseline;margin-bottom:16px">
+                  <span
+                    style="font-family:var(--font-heading);font-size:13px;letter-spacing:0.12em;color:var(--color-accent-700)">SERVICE
+                    AREA 02</span>
+                  <span
+                    style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-700)">06
+                    groups</span>
+                </div>
+                <h1 style="font-size:clamp(32px,4.4vw,46px);letter-spacing:-0.01em;margin:0">Back-office operations</h1>
+                <p style="margin:20px 0 0; text-align: justify; font-size:17px;line-height:1.7;color:var(--color-neutral-800);max-width:64ch">
+                  Claims sitting in a queue, invoices waiting on someone to key them in, stock counts that don't match
+                  what's actually on the shelf - this is the work that keeps a business running but never shows up in
+                  anyone's job title. When it falls behind, it doesn't announce itself; it just quietly costs you a payment
+                  cycle, a customer's patience, or an audit finding.</p>
+                <p style="margin:14px 0 0;text-align: justify;font-size:17px;line-height:1.7;color:var(--color-neutral-800);max-width:64ch">We
+                  run this as a standing operation rather than a backlog someone gets to eventually — documented process, a
+                  named team, and turnaround times you can actually plan around.</p>
+                <a href="#contact" class="btn btn-primary" style="display:inline-block;margin-top:28px">Start a free trial
+                  project</a>
+              </div>
+              <div class="qd-service-intro-media">
+                <img src="assets/images/Back-office.jpg" alt="Back-Office Operations" width="735" height="490" loading="eager">
+              </div>
             </div>
-            <h1 style="font-size:clamp(32px,4.4vw,46px);letter-spacing:-0.01em;margin:0">Back-office operations</h1>
-            <p style="margin:20px 0 0;font-size:17px;line-height:1.7;color:var(--color-neutral-800);max-width:64ch">
-              Claims sitting in a queue, invoices waiting on someone to key them in, stock counts that don't match
-              what's actually on the shelf — this is the work that keeps a business running but never shows up in
-              anyone's job title. When it falls behind, it doesn't announce itself; it just quietly costs you a payment
-              cycle, a customer's patience, or an audit finding.</p>
-            <p style="margin:14px 0 0;font-size:17px;line-height:1.7;color:var(--color-neutral-800);max-width:64ch">We
-              run this as a standing operation rather than a backlog someone gets to eventually — documented process, a
-              named team, and turnaround times you can actually plan around.</p>
-            <a href="#contact" class="btn btn-primary" style="display:inline-block;margin-top:28px">Start a free trial
-              project</a>
           </section>
 
           <section style="border-top:1px solid var(--color-divider);background:var(--color-surface)">
@@ -2953,7 +2977,7 @@
                   style="display:block;text-decoration:none;color:inherit;padding:24px;background:var(--color-bg);border:1px solid var(--color-divider);border-radius:10px;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease"
                   style-hover="transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--color-accent-300)">
                   <h2 style="font-size:20px;margin:0">Document &amp; file management</h2>
-                  <p style="margin:8px 0 0;font-size:15px;line-height:1.65;color:var(--color-neutral-700)">Records,
+                  <p style="margin:8px 0 0;text-align: justify;font-size:15px;line-height:1.65;color:var(--color-neutral-700)">Records,
                     contracts, forms and operational files pile up fast when nobody owns where they live. We organize,
                     categorize, index and archive them so a document can be found in seconds instead of a search that
                     eats half an afternoon. When an auditor or a customer asks for something from eighteen months ago,
@@ -2963,8 +2987,8 @@
                   style="display:block;text-decoration:none;color:inherit;padding:24px;background:var(--color-bg);border:1px solid var(--color-divider);border-radius:10px;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease"
                   style-hover="transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--color-accent-300)">
                   <h2 style="font-size:20px;margin:0">Claims &amp; billing processing</h2>
-                  <p style="margin:8px 0 0;font-size:15px;line-height:1.65;color:var(--color-neutral-700)">A claim stuck
-                    in review or an invoice waiting to be keyed in isn't just paperwork — it's cash flow and a customer
+                  <p style="margin:8px 0 0;text-align: justify;font-size:15px;line-height:1.65;color:var(--color-neutral-700)">A claim stuck
+                    in review or an invoice waiting to be keyed in isn't just paperwork - it's cash flow and a customer
                     relationship both on hold. We handle claims and reimbursement review, invoice preparation, and
                     accounts payable and receivable support on a schedule you can rely on. Payments move, disputes get
                     caught early, and your finance team spends its time on judgment calls instead of data entry.</p>
@@ -2973,7 +2997,7 @@
                   style="display:block;text-decoration:none;color:inherit;padding:24px;background:var(--color-bg);border:1px solid var(--color-divider);border-radius:10px;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease"
                   style-hover="transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--color-accent-300)">
                   <h2 style="font-size:20px;margin:0">HR &amp; payroll administration</h2>
-                  <p style="margin:8px 0 0;font-size:15px;line-height:1.65;color:var(--color-neutral-700)">Employee
+                  <p style="margin:8px 0 0;text-align: justify;font-size:15px;line-height:1.65;color:var(--color-neutral-700)">Employee
                     records, attendance and onboarding documentation are the kind of detail that seems minor until a
                     payroll run goes wrong or a new hire's paperwork is missing on day one. We keep these records
                     current and payroll-related updates accurate, so the people side of your business runs without the
@@ -2983,7 +3007,7 @@
                   style="display:block;text-decoration:none;color:inherit;padding:24px;background:var(--color-bg);border:1px solid var(--color-divider);border-radius:10px;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease"
                   style-hover="transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--color-accent-300)">
                   <h2 style="font-size:20px;margin:0">Inventory &amp; supply chain support</h2>
-                  <p style="margin:8px 0 0;font-size:15px;line-height:1.65;color:var(--color-neutral-700)">Stock records
+                  <p style="margin:8px 0 0;text-align: justify;font-size:15px;line-height:1.65;color:var(--color-neutral-700)">Stock records
                     that don't match the shelf, or a shipment nobody's tracking, turn into a stockout or a customer
                     promise you can't keep. We maintain stock records, order and shipment tracking, supplier data and
                     delivery documentation so what your system says matches what's actually there. You plan against
@@ -2993,7 +3017,7 @@
                   style="display:block;text-decoration:none;color:inherit;padding:24px;background:var(--color-bg);border:1px solid var(--color-divider);border-radius:10px;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease"
                   style-hover="transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--color-accent-300)">
                   <h2 style="font-size:20px;margin:0">Reporting &amp; transcription</h2>
-                  <p style="margin:8px 0 0;font-size:15px;line-height:1.65;color:var(--color-neutral-700)">Someone on
+                  <p style="margin:8px 0 0;text-align: justify;font-size:15px;line-height:1.65;color:var(--color-neutral-700)">Someone on
                     your team is likely spending hours turning calls, meetings or raw numbers into a report that a
                     manager reads once. We produce routine operational and management reports, plus audio and video
                     transcription, formatted the way your business actually uses them. That's time your team gets back
@@ -3003,7 +3027,7 @@
                   style="display:block;text-decoration:none;color:inherit;padding:24px;background:var(--color-bg);border:1px solid var(--color-divider);border-radius:10px;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease"
                   style-hover="transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--color-accent-300)">
                   <h2 style="font-size:20px;margin:0">Order &amp; administrative support</h2>
-                  <p style="margin:8px 0 0;font-size:15px;line-height:1.65;color:var(--color-neutral-700)">An order that
+                  <p style="margin:8px 0 0;text-align: justify;font-size:15px;line-height:1.65;color:var(--color-neutral-700)">An order that
                     stalls between your customer, your supplier and your own team usually stalls because nobody's
                     clearly responsible for moving it forward. We track customer and supplier orders and order status,
                     and coordinate between internal teams and external stakeholders so nothing sits waiting on a
@@ -3016,29 +3040,36 @@
 
       <sc-if value="{{ routeIsServiceApplicationSupport }}" hint-placeholder-val="{{ false }}">
         <main data-route="service-application-support">
-          <section style="max-width:900px;margin:0 auto;padding:48px 28px 20px">
+          <section style="max-width:1200px;margin:0 auto;padding:48px 28px 20px">
             <a href="#services"
               style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--color-accent-700);font-size:14px;font-weight:500;margin-bottom:18px">←
               Back to services</a>
-            <div style="display:flex;gap:14px;align-items:baseline;margin-bottom:16px">
-              <span
-                style="font-family:var(--font-heading);font-size:13px;letter-spacing:0.12em;color:var(--color-accent-700)">SERVICE
-                AREA 03</span>
-              <span
-                style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-700)">06
-                groups</span>
+            <div class="qd-service-intro-grid">
+              <div class="qd-service-intro-content">
+                <div style="display:flex;gap:14px;align-items:baseline;margin-bottom:16px">
+                  <span
+                    style="font-family:var(--font-heading);font-size:13px;letter-spacing:0.12em;color:var(--color-accent-700)">SERVICE
+                    AREA 03</span>
+                  <span
+                    style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-700)">06
+                    groups</span>
+                </div>
+                <h1 style="font-size:clamp(32px,4.4vw,46px);letter-spacing:-0.01em;margin:0">Application support activities
+                </h1>
+                <p style="margin:20px 0 0;text-align: justify; font-size:17px;line-height:1.7;color:var(--color-neutral-800);max-width:64ch">A
+                  locked-out user, a stalled password reset, a system that's slow and nobody's sure why — small on their
+                  own, but they pile up fast when there's no one dedicated to catching them before they become a bigger
+                  outage or a frustrated customer. Your engineering team shouldn't be the ones fielding it.</p>
+                <p style="margin:14px 0 0;text-align: justify;font-size:17px;line-height:1.7;color:var(--color-neutral-800);max-width:64ch">We
+                  sit between your users and your systems: watching, responding, and escalating what genuinely needs your
+                  engineers' attention, so the rest never reaches them.</p>
+                <a href="#contact" class="btn btn-primary" style="display:inline-block;margin-top:28px">Start a free trial
+                  project</a>
+              </div>
+              <div class="qd-service-intro-media">
+                <img src="assets/images/app.png" alt="Application Support Activities" width="360" height="304" loading="eager">
+              </div>
             </div>
-            <h1 style="font-size:clamp(32px,4.4vw,46px);letter-spacing:-0.01em;margin:0">Application support activities
-            </h1>
-            <p style="margin:20px 0 0;font-size:17px;line-height:1.7;color:var(--color-neutral-800);max-width:64ch">A
-              locked-out user, a stalled password reset, a system that's slow and nobody's sure why — small on their
-              own, but they pile up fast when there's no one dedicated to catching them before they become a bigger
-              outage or a frustrated customer. Your engineering team shouldn't be the ones fielding it.</p>
-            <p style="margin:14px 0 0;font-size:17px;line-height:1.7;color:var(--color-neutral-800);max-width:64ch">We
-              sit between your users and your systems: watching, responding, and escalating what genuinely needs your
-              engineers' attention, so the rest never reaches them.</p>
-            <a href="#contact" class="btn btn-primary" style="display:inline-block;margin-top:28px">Start a free trial
-              project</a>
           </section>
 
           <section style="border-top:1px solid var(--color-divider);background:var(--color-surface)">
@@ -3051,14 +3082,14 @@
                   style="display:block;text-decoration:none;color:inherit;padding:24px;background:var(--color-bg);border:1px solid var(--color-divider);border-radius:10px;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease"
                   style-hover="transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--color-accent-300)">
                   <h2 style="font-size:20px;margin:0">Level 1 &amp; Level 2 technical support</h2>
-                  <p style="margin:8px 0 0;font-size:15px;line-height:1.65;color:var(--color-neutral-700)">A user stuck
+                  <p style="margin:8px 0 0;text-align: justify;font-size:15px;line-height:1.65;color:var(--color-neutral-700)">A user stuck
                     on a login screen or confused by a feature doesn't want a ticket number, they want to keep working.
                     We handle user queries, software and interface troubleshooting, and day-to-day feature questions
                     directly, so most issues never travel further than the first person who hears about them. Your team
                     gets time back; your users get an answer instead of a queue.</p>
                 </a>
                 <a href="#contact"
-                  style="display:block;text-decoration:none;color:inherit;padding:24px;background:var(--color-bg);border:1px solid var(--color-divider);border-radius:10px;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease"
+                  style="display:block;text-align: justify;text-decoration:none;color:inherit;padding:24px;background:var(--color-bg);border:1px solid var(--color-divider);border-radius:10px;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease"
                   style-hover="transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--color-accent-300)">
                   <h2 style="font-size:20px;margin:0">User access &amp; identity management</h2>
                   <p style="margin:8px 0 0;font-size:15px;line-height:1.65;color:var(--color-neutral-700)">A locked-out
@@ -3071,7 +3102,7 @@
                   style="display:block;text-decoration:none;color:inherit;padding:24px;background:var(--color-bg);border:1px solid var(--color-divider);border-radius:10px;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease"
                   style-hover="transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--color-accent-300)">
                   <h2 style="font-size:20px;margin:0">System monitoring &amp; maintenance</h2>
-                  <p style="margin:8px 0 0;font-size:15px;line-height:1.65;color:var(--color-neutral-700)">A system
+                  <p style="margin:8px 0 0;text-align: justify;font-size:15px;line-height:1.65;color:var(--color-neutral-700)">A system
                     that's quietly slowing down usually gives warning signs long before it fails outright — if someone's
                     actually watching. We run availability and performance monitoring, log checks and routine
                     application health checks so degradation gets caught while it's still an easy fix. You hear about
@@ -3081,7 +3112,7 @@
                   style="display:block;text-decoration:none;color:inherit;padding:24px;background:var(--color-bg);border:1px solid var(--color-divider);border-radius:10px;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease"
                   style-hover="transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--color-accent-300)">
                   <h2 style="font-size:20px;margin:0">Bug triage &amp; escalation</h2>
-                  <p style="margin:8px 0 0;font-size:15px;line-height:1.65;color:var(--color-neutral-700)">Not every
+                  <p style="margin:8px 0 0;text-align: justify;font-size:15px;line-height:1.65;color:var(--color-neutral-700)">Not every
                     reported issue needs an engineer, but figuring out which ones do shouldn't fall on the engineer
                     either. We document and reproduce reported issues, categorize and prioritize them, and escalate to
                     L3 or engineering only what genuinely needs that level of attention. Your development team's time
@@ -3091,7 +3122,7 @@
                   style="display:block;text-decoration:none;color:inherit;padding:24px;background:var(--color-bg);border:1px solid var(--color-divider);border-radius:10px;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease"
                   style-hover="transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--color-accent-300)">
                   <h2 style="font-size:20px;margin:0">Patch &amp; version deployment support</h2>
-                  <p style="margin:8px 0 0;font-size:15px;line-height:1.65;color:var(--color-neutral-700)">Every update
+                  <p style="margin:8px 0 0;text-align: justify;font-size:15px;line-height:1.65;color:var(--color-neutral-700)">Every update
                     carries some risk of breaking something that was working fine yesterday. We handle updates and
                     version changes, pre-deployment testing, and configuration changes and patch implementation with
                     that risk in mind, catching conflicts before they reach production. Deployments become routine
@@ -3101,7 +3132,7 @@
                   style="display:block;text-decoration:none;color:inherit;padding:24px;background:var(--color-bg);border:1px solid var(--color-divider);border-radius:10px;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease"
                   style-hover="transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--color-accent-300)">
                   <h2 style="font-size:20px;margin:0">Incident &amp; service request management</h2>
-                  <p style="margin:8px 0 0;font-size:15px;line-height:1.65;color:var(--color-neutral-700)">An incident
+                  <p style="margin:8px 0 0;text-align: justify;font-size:15px;line-height:1.65;color:var(--color-neutral-700)">An incident
                     that isn't tracked properly tends to repeat, because nobody captured what actually fixed it last
                     time. We log and track incidents and requests through to resolution, and build that knowledge into
                     support and knowledge-base documentation as we go. The next similar issue gets resolved faster
